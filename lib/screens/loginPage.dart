@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/screens/chatScreen.dart';
+
 import 'package:whats_app_ui/screens/homePage.dart';
 import 'package:whats_app_ui/screens/signupPage.dart';
 import 'package:whats_app_ui/widgets/divider.dart';

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/constants/colors.dart';
-import 'package:whats_app_ui/screens/chatScreen.dart';
+
+import 'package:whats_app_ui/screens/contact.dart';
 import 'package:whats_app_ui/screens/loginPage.dart';
+import 'package:whats_app_ui/widgets/chatListView.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});
@@ -33,10 +35,10 @@ class Homepage extends StatelessWidget {
               Tab(text: "Status"),
             ]),
           ),
-          body:const TabBarView(
+          body: const TabBarView(
             children: [
               Icon(Icons.directions_bike),
-              Chatscreen(),
+              ChatListView(),
               Icon(Icons.directions_bike),
               Icon(Icons.directions_bike),
             ],
@@ -50,8 +52,13 @@ class Homepage extends StatelessWidget {
                 color: TColors.whatsAppGreen,
                 borderRadius: BorderRadius.circular(50)),
             child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.message_rounded),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ContactScreen()),
+                );
+              },
+              icon:const Icon(Icons.message_rounded),
               color: Colors.white,
             ),
           ),
