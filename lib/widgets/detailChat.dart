@@ -9,7 +9,7 @@ class DetailChat extends StatefulWidget {
 }
 
 class _DetailChatState extends State<DetailChat> {
-  List<String> chats = ["hi", 'hello', "how are you"];
+  List<String> chats = [];
   @override
   Widget build(BuildContext context) {
     TextEditingController messageController = TextEditingController();
@@ -67,19 +67,23 @@ class _DetailChatState extends State<DetailChat> {
       //
       //
       body: Stack(children: [
-        ListView.builder(
-            itemCount: chats.length,
-            itemBuilder: (_, index) {
-              return Container(
-                decoration: BoxDecoration(
-                    color: TColors.whatsAppGreen.withOpacity(0.4),
-                    borderRadius: BorderRadius.circular(10)),
-                child: Text(
-                  chats[index],
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
-              );
-            }),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
+          child: ListView.builder(
+              itemCount: chats.length,
+              itemBuilder: (_, index) {
+                return Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                  child: Text(
+                    chats[index],
+                    style: Theme.of(context).textTheme.headlineSmall,
+                    textAlign:
+                        index % 2 == 0 ? TextAlign.right : TextAlign.start,
+                  ),
+                );
+              }),
+        ),
 
         //
         //bottom text field
