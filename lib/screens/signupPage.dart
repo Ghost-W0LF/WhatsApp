@@ -95,7 +95,7 @@ class SignupPage extends StatelessWidget {
             CustButton(
               text: "Creat account",
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => Homepage()),
                 );

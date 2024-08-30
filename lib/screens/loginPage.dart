@@ -14,8 +14,7 @@ class Loginpage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading:
-              IconButton(onPressed: () {}, icon: Icon(Icons.keyboard_return)),
+          automaticallyImplyLeading: false,
         ),
         body: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -72,7 +71,7 @@ class Loginpage extends StatelessWidget {
             CustButton(
               text: "Login",
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const Homepage()),
                 );
