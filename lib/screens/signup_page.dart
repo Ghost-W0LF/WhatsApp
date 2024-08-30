@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/screens/home_page.dart';
+import 'package:whats_app_ui/service/signup_service.dart';
 import 'package:whats_app_ui/widgets/elevated_button.dart';
 import 'package:whats_app_ui/widgets/text_formfield.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({super.key});
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
+  //final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailComtroller = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController rePasswordController = TextEditingController();
+  //final TextEditingController rePasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final _register = Register();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Signup "),
@@ -23,7 +26,7 @@ class SignupPage extends StatelessWidget {
             icon: const Icon(Icons.keyboard_return)),
       ),
       body: SingleChildScrollView(
-        padding:const EdgeInsets.all(30),
+        padding: const EdgeInsets.all(30),
         child: Column(
           children: [
             Text(
@@ -43,18 +46,18 @@ class SignupPage extends StatelessWidget {
                   children: [
                     Expanded(
                       child: CustTextFormField(
-                        emailController: nameController,
+                        controller: nameController,
                         hintText: "First Name",
                         iconData: Icons.person,
                       ),
                     ),
-                    Expanded(
+                    /*  Expanded(
                       child: CustTextFormField(
-                        emailController: lastNameController,
+                        controller: lastNameController,
                         hintText: "Last Name",
                         iconData: Icons.person_2,
                       ),
-                    ),
+                    ), */
                   ],
                 ),
                 const SizedBox(
@@ -63,7 +66,7 @@ class SignupPage extends StatelessWidget {
                 //
                 //email
                 CustTextFormField(
-                  emailController: emailComtroller,
+                  controller: emailComtroller,
                   hintText: "Email",
                   iconData: Icons.email,
                 ),
@@ -73,18 +76,18 @@ class SignupPage extends StatelessWidget {
                 //
                 //password
                 CustTextFormField(
-                  emailController: passwordController,
+                  controller: passwordController,
                   hintText: "Password",
                   iconData: Icons.email,
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                CustTextFormField(
-                  emailController: rePasswordController,
+                /* CustTextFormField(
+                  controller: rePasswordController,
                   hintText: "Confirm Password",
                   iconData: Icons.email,
-                ),
+                ), */
                 const SizedBox(
                   height: 40,
                 ),
@@ -95,10 +98,8 @@ class SignupPage extends StatelessWidget {
             CustButton(
               text: "Creat account",
               onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) =>const Homepage()),
-                );
+                _register.register_user(emailComtroller.text,
+                    nameController.text, passwordController.text);
               },
             )
           ],

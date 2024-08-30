@@ -86,13 +86,14 @@ class _LoginpageState extends State<Loginpage> {
                 child: Column(
               children: [
                 CustTextFormField(
-                  emailController: emailController,
+                  controller: emailController,
+                  
                   hintText: "Email",
                   iconData: Icons.email,
                 ),
                 const SizedBox(height: 30),
                 CustTextFormField(
-                  emailController: passwordController,
+                  controller: passwordController,
                   obscureText: true,
                   hintText: "Password",
                   iconData: Icons.password,
@@ -105,6 +106,13 @@ class _LoginpageState extends State<Loginpage> {
             CustButton(
               text: "Login",
               onPressed: () {
+               
+
+
+
+
+
+
                 _login();
               },
             ),
