@@ -1,17 +1,51 @@
 import 'package:flutter/material.dart';
-
 import 'package:whats_app_ui/screens/home_page.dart';
+
 import 'package:whats_app_ui/screens/signup_page.dart';
+import 'package:whats_app_ui/service/login_service.dart';
 import 'package:whats_app_ui/widgets/divider.dart';
 import 'package:whats_app_ui/widgets/elevated_button.dart';
 import 'package:whats_app_ui/widgets/text_formfield.dart';
 
-class Loginpage extends StatelessWidget {
+class Loginpage extends StatefulWidget {
   Loginpage({super.key});
+
+  @override
+  State<Loginpage> createState() => _LoginpageState();
+}
+
+class _LoginpageState extends State<Loginpage> {
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
+  final LoginService _loginService = LoginService();
+
   @override
   Widget build(BuildContext context) {
+    void _login() async {
+      String email = emailController.text.trim();
+      String password = passwordController.text.trim();
+
+      String? token = await _loginService.login(email, password);
+
+      if (token != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => Homepage()),
+        );
+        print('Login successful, token: $token');
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Invalid email or password!'),
+          ),
+        );
+        // Show an error message
+        debugPrint('Login failed: $token');
+      }
+    }
+
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -71,11 +105,7 @@ class Loginpage extends StatelessWidget {
             CustButton(
               text: "Login",
               onPressed: () {
-       
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Homepage()),
-                );
+                _login();
               },
             ),
             //
