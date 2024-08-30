@@ -8,8 +8,8 @@ import 'package:whats_app_ui/widgets/text_formfield.dart';
 
 class Loginpage extends StatelessWidget {
   Loginpage({super.key});
- final TextEditingController emailController = TextEditingController();
- final TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,6 +71,7 @@ class Loginpage extends StatelessWidget {
             CustButton(
               text: "Login",
               onPressed: () {
+       
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const Homepage()),
@@ -85,7 +86,7 @@ class Loginpage extends StatelessWidget {
             const SizedBox(height: 20),
             Row(
               children: [
-               const Text("If you donot have an account !!"),
+                const Text("If you donot have an account !!"),
                 //
                 //Signup Button
                 CustButton(
