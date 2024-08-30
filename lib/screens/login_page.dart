@@ -3,12 +3,12 @@ import 'package:whats_app_ui/screens/home_page.dart';
 
 import 'package:whats_app_ui/screens/signup_page.dart';
 import 'package:whats_app_ui/service/login_service.dart';
-import 'package:whats_app_ui/widgets/divider.dart';
-import 'package:whats_app_ui/widgets/elevated_button.dart';
-import 'package:whats_app_ui/widgets/text_formfield.dart';
+import 'package:whats_app_ui/widgets/cust_divider.dart';
+import 'package:whats_app_ui/widgets/cust_button.dart';
+import 'package:whats_app_ui/widgets/cust_text_formfield.dart';
 
 class Loginpage extends StatefulWidget {
-  Loginpage({super.key});
+  const Loginpage({super.key});
 
   @override
   State<Loginpage> createState() => _LoginpageState();
@@ -32,15 +32,33 @@ class _LoginpageState extends State<Loginpage> {
       if (token != null) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => Homepage()),
+          MaterialPageRoute(builder: (context) => const HomePage()),
         );
-        print('Login successful, token: $token');
+        debugPrint('Login successful, token: $token');
       } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Invalid email or password!'),
-          ),
-        );
+        if (emailController.text.isEmpty ||
+            !emailController.text.contains('@') ||
+            !emailController.text.contains('.com')) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Invalid Email'),
+            ),
+          );
+        } else if (passwordController.text.isEmpty ||
+            passwordController.text.length != 8) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Invalid Password'),
+            ),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Invalid Email or Password'),
+            ),
+          );
+        }
+
         // Show an error message
         debugPrint('Login failed: $token');
       }
@@ -87,7 +105,6 @@ class _LoginpageState extends State<Loginpage> {
               children: [
                 CustTextFormField(
                   controller: emailController,
-                  
                   hintText: "Email",
                   iconData: Icons.email,
                 ),
@@ -106,13 +123,6 @@ class _LoginpageState extends State<Loginpage> {
             CustButton(
               text: "Login",
               onPressed: () {
-               
-
-
-
-
-
-
                 _login();
               },
             ),

@@ -3,8 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-
-class Register {
+class SignupService {
   final baseUrl = "https://tbe.thuprai.com/v1/api/signup/";
   Future<void> register_user(
       String email, String fullname, String password) async {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/screens/home_page.dart';
 import 'package:whats_app_ui/service/signup_service.dart';
-import 'package:whats_app_ui/widgets/elevated_button.dart';
-import 'package:whats_app_ui/widgets/text_formfield.dart';
+import 'package:whats_app_ui/widgets/cust_button.dart';
+import 'package:whats_app_ui/widgets/cust_text_formfield.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({super.key});
@@ -14,7 +14,7 @@ class SignupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _register = Register();
+    final _register = SignupService();
 
     return Scaffold(
       appBar: AppBar(
