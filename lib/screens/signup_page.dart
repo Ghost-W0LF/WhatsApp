@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/screens/home_page.dart';
 import 'package:whats_app_ui/widgets/elevated_button.dart';
-import 'package:whats_app_ui/widgets/textFormField.dart';
+import 'package:whats_app_ui/widgets/text_formfield.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({super.key});
@@ -23,7 +23,7 @@ class SignupPage extends StatelessWidget {
             icon: const Icon(Icons.keyboard_return)),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(30),
+        padding:const EdgeInsets.all(30),
         child: Column(
           children: [
             Text(
@@ -97,7 +97,7 @@ class SignupPage extends StatelessWidget {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => Homepage()),
+                  MaterialPageRoute(builder: (context) =>const Homepage()),
                 );
               },
             )

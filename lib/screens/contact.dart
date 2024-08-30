@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/constants/colors.dart';
 
-import 'package:whats_app_ui/widgets/chatListView.dart';
+import 'package:whats_app_ui/widgets/chat_listview.dart';
 import 'package:whats_app_ui/widgets/list_tile.dart';
 
 class ContactScreen extends StatelessWidget {

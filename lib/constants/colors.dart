@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
 class TColors {
-  static Color whatsAppGreen = Color(0xFF25D366);
+  const TColors({dynamic});
+  static Color whatsAppGreen =const Color(0xFF25D366);
 }

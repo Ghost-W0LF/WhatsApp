@@ -3,7 +3,7 @@ import 'package:whats_app_ui/constants/colors.dart';
 
 import 'package:whats_app_ui/screens/contact.dart';
 
-import 'package:whats_app_ui/widgets/chatListView.dart';
+import 'package:whats_app_ui/widgets/chat_listview.dart';
 
 class Homepage extends StatelessWidget {
   const Homepage({super.key});

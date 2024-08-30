@@ -4,7 +4,7 @@ import 'package:whats_app_ui/screens/home_page.dart';
 import 'package:whats_app_ui/screens/signup_page.dart';
 import 'package:whats_app_ui/widgets/divider.dart';
 import 'package:whats_app_ui/widgets/elevated_button.dart';
-import 'package:whats_app_ui/widgets/textFormField.dart';
+import 'package:whats_app_ui/widgets/text_formfield.dart';
 
 class Loginpage extends StatelessWidget {
   Loginpage({super.key});

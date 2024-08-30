@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustTextFormField extends StatelessWidget {
-  CustTextFormField({
+  const CustTextFormField({
     super.key,
     required this.emailController,
     this.hintText,
     this.iconData,
-    this.obscureText=false,
+    this.obscureText = false,
   });
 
   final TextEditingController emailController;

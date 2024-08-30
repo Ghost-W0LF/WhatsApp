@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class DetailChat extends StatefulWidget {
   const DetailChat({super.key});
 
@@ -27,12 +26,12 @@ class _DetailChatState extends State<DetailChat> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon:const Icon(Icons.arrow_back_ios)),
+            icon: const Icon(Icons.arrow_back_ios)),
         //
         //Title
         title: Row(
           children: [
-          const  CircleAvatar(
+            const CircleAvatar(
               backgroundImage: AssetImage("assets/logo.png"),
             ),
             const SizedBox(
@@ -97,7 +96,7 @@ class _DetailChatState extends State<DetailChat> {
                   borderRadius: BorderRadius.circular(20)),
               child: Row(
                 children: [
-                  IconButton(onPressed: () {}, icon:const Icon(Icons.add)),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
                   Expanded(
                       child: Row(
                     children: [
@@ -111,11 +110,12 @@ class _DetailChatState extends State<DetailChat> {
                             updateChat();
                             messageController.clear();
                           },
-                          icon:const Icon(Icons.send))
+                          icon: const Icon(Icons.send))
                     ],
                   )),
-                  IconButton(onPressed: () {}, icon:const Icon(Icons.photo_camera)),
-                  IconButton(onPressed: () {}, icon:const Icon(Icons.mic)),
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.photo_camera)),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.mic)),
                 ],
               ),
             ))
