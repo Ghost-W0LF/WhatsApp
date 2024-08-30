@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'package:whats_app_ui/screens/homePage.dart';
-import 'package:whats_app_ui/screens/signupPage.dart';
+import 'package:whats_app_ui/screens/home_page.dart';
+import 'package:whats_app_ui/screens/signup_page.dart';
 import 'package:whats_app_ui/widgets/divider.dart';
-import 'package:whats_app_ui/widgets/elevatedButton.dart';
+import 'package:whats_app_ui/widgets/elevated_button.dart';
 import 'package:whats_app_ui/widgets/textFormField.dart';
 
 class Loginpage extends StatelessWidget {
   Loginpage({super.key});
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+ final TextEditingController emailController = TextEditingController();
+ final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +85,7 @@ class Loginpage extends StatelessWidget {
             const SizedBox(height: 20),
             Row(
               children: [
-                Text("If you donot have an account !!"),
+               const Text("If you donot have an account !!"),
                 //
                 //Signup Button
                 CustButton(

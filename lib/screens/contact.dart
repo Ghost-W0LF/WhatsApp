@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/constants/colors.dart';
-import 'package:whats_app_ui/screens/signupPage.dart';
 
 import 'package:whats_app_ui/widgets/chatListView.dart';
-import 'package:whats_app_ui/widgets/listTile.dart';
+import 'package:whats_app_ui/widgets/list_tile.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({super.key});
@@ -17,7 +16,7 @@ class ContactScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.keyboard_return)),
+            icon: const Icon(Icons.keyboard_return)),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -32,8 +31,8 @@ class ContactScreen extends StatelessWidget {
           ],
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
         ],
       ),
       body: Padding(
@@ -41,29 +40,29 @@ class ContactScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("Create"),
+            const Text("Create"),
             //
             //
-            CustListTile(
+            const CustListTile(
               iconData: Icons.account_circle,
               title: "New Group",
             ),
-            CustListTile(
+            const CustListTile(
               iconData: Icons.person_add,
               title: "New Contact",
               leading: true,
               leadingIcon: Icons.qr_code,
             ),
-            CustListTile(
+            const CustListTile(
               iconData: Icons.groups,
               title: "New Community",
             ),
             //
             //
-            Text("Discover"),
+            const Text("Discover"),
             //
             //ListTile
-            CustListTile(
+            const CustListTile(
               iconData: Icons.store,
               title: "Business",
             ),
@@ -79,7 +78,7 @@ class ContactScreen extends StatelessWidget {
             ),
             //
             //Component chat view
-            Expanded(child: ChatListView())
+            const Expanded(child: ChatListView())
           ],
         ),
       ),

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/constants/colors.dart';
 
 class CustButton extends StatelessWidget {
-  CustButton({
+  const CustButton({
     super.key,
     this.onPressed,
     required this.text,
     this.isTextButton = false,
   });
-  bool isTextButton;
-  VoidCallback? onPressed;
-  String text;
+ final bool isTextButton;
+ final VoidCallback? onPressed;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return isTextButton

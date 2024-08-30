@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/constants/colors.dart';
 
 import 'package:whats_app_ui/screens/contact.dart';
-import 'package:whats_app_ui/screens/loginPage.dart';
+
 import 'package:whats_app_ui/widgets/chatListView.dart';
 
 class Homepage extends StatelessWidget {
@@ -19,10 +19,10 @@ class Homepage extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: TColors.whatsAppGreen,
             automaticallyImplyLeading: false,
-            title: Text('WhatsApp'),
+            title: const Text('WhatsApp'),
             actions: [
-              IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-              IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))
+              IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
             ],
             //
             //Tabs
@@ -55,10 +55,11 @@ class Homepage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ContactScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const ContactScreen()),
                 );
               },
-              icon:const Icon(Icons.message_rounded),
+              icon: const Icon(Icons.message_rounded),
               color: Colors.white,
             ),
           ),

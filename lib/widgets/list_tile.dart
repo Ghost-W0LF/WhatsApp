@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/constants/colors.dart';
 
 class CustListTile extends StatelessWidget {
-  CustListTile(
+  const CustListTile(
       {super.key,
       required this.title,
       this.leading = false,
       this.leadingIcon,
       required this.iconData});
 
-  IconData iconData;
-  String title;
-  bool leading;
-  IconData? leadingIcon;
+  final IconData iconData;
+  final String title;
+  final bool leading;
+  final IconData? leadingIcon;
 
   @override
   Widget build(BuildContext context) {

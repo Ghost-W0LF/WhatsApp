@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/screens/loginPage.dart';
+import 'package:whats_app_ui/screens/login_page.dart';
 
 void main() {
   runApp(const MyApp());

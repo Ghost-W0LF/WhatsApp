@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/screens/homePage.dart';
-import 'package:whats_app_ui/widgets/elevatedButton.dart';
+import 'package:whats_app_ui/screens/home_page.dart';
+import 'package:whats_app_ui/widgets/elevated_button.dart';
 import 'package:whats_app_ui/widgets/textFormField.dart';
 
 class SignupPage extends StatelessWidget {
   SignupPage({super.key});
-  TextEditingController nameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController emailComtroller = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController rePasswordController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailComtroller = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController rePasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Signup "),
+        title: const Text("Signup "),
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.keyboard_return)),
+            icon: const Icon(Icons.keyboard_return)),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(30),
