@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/models/aurh_model.dart';
-import 'package:whats_app_ui/models/service/auth_service.dart';
+import 'package:whats_app_ui/service/auth_service.dart';
 
 import 'package:whats_app_ui/constants/colors.dart';
 import 'package:whats_app_ui/widgets/detail_chat.dart';
