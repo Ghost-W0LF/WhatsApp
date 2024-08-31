@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/constants/colors.dart';
+import 'package:whats_app_ui/utils/constants/colors.dart';
 
 class CustButton extends StatelessWidget {
   const CustButton({

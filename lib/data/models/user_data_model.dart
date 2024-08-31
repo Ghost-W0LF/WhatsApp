@@ -1,4 +1,4 @@
-class Auth {
+class UserData {
   int? page;
   int? perPage;
   int? total;
@@ -6,7 +6,7 @@ class Auth {
   List<Data>? data;
   Support? support;
 
-  Auth(
+  UserData(
       {this.page,
       this.perPage,
       this.total,
@@ -14,7 +14,7 @@ class Auth {
       this.data,
       this.support});
 
-  Auth.fromJson(Map<String, dynamic> json) {
+  UserData.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     perPage = json['per_page'];
     total = json['total'];

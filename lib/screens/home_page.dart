@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/constants/colors.dart';
+import 'package:whats_app_ui/utils/constants/colors.dart';
 
 import 'package:whats_app_ui/screens/contact.dart';
 
-import 'package:whats_app_ui/widgets/chat_listview.dart';
+import 'package:whats_app_ui/common/widgets/chat_listview.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

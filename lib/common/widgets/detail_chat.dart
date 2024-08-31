@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/utils/constants/colors.dart';
+import 'package:whats_app_ui/data/models/user_data_model.dart';
+import 'package:whats_app_ui/data/service/auth_service.dart';
 
 class DetailChat extends StatefulWidget {
-  const DetailChat({super.key});
+  const DetailChat({super.key, required this.index});
+  final int index;
 
   @override
   State<DetailChat> createState() => _DetailChatState();
@@ -9,6 +13,24 @@ class DetailChat extends StatefulWidget {
 
 class _DetailChatState extends State<DetailChat> {
   List<String> chats = [];
+
+  UserData? _auth;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    fetchUserData();
+  }
+
+  void fetchUserData() async {
+    AuthService authService = AuthService();
+    UserData auth = await authService.fetchUser();
+    setState(() {
+      _auth = auth;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     TextEditingController messageController = TextEditingController();
@@ -31,18 +53,23 @@ class _DetailChatState extends State<DetailChat> {
         //Title
         title: Row(
           children: [
-            const CircleAvatar(
-              backgroundImage: AssetImage("assets/logo.png"),
+            CircleAvatar(
+              backgroundImage: NetworkImage(_auth?.data?[widget.index].avatar ??
+                  "https://www.rawpixel.com/search/person%20icon"),
             ),
             const SizedBox(
-              width: 10,
+              width: 5,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "User 1",
-                  style: Theme.of(context).textTheme.bodyLarge,
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Text(
+                    '${_auth?.data?[widget.index].email}',
+                    style: Theme.of(context).textTheme.bodyLarge,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 Text(
                   "tap here for contact info",
@@ -57,7 +84,7 @@ class _DetailChatState extends State<DetailChat> {
 
         actions: const [
           Icon(Icons.videocam_outlined),
-          SizedBox(width: 30),
+          SizedBox(width: 10),
           Icon(Icons.phone_outlined),
           SizedBox(width: 20),
         ],
@@ -69,14 +96,17 @@ class _DetailChatState extends State<DetailChat> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
           child: ListView.builder(
+              shrinkWrap: false,
               itemCount: chats.length,
               itemBuilder: (_, index) {
-                return Container(
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(10)),
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 5.0),
                   child: Text(
-                    chats[index],
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    '  ${chats[index]} ',
+                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                        backgroundColor: index % 2 == 0
+                            ? TColors.whatsAppGreen
+                            : Colors.grey),
                     textAlign:
                         index % 2 == 0 ? TextAlign.right : TextAlign.start,
                   ),

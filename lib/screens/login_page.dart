@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/screens/home_page.dart';
 
 import 'package:whats_app_ui/screens/signup_page.dart';
-import 'package:whats_app_ui/service/login_service.dart';
-import 'package:whats_app_ui/widgets/cust_divider.dart';
-import 'package:whats_app_ui/widgets/cust_button.dart';
-import 'package:whats_app_ui/widgets/cust_text_formfield.dart';
+import 'package:whats_app_ui/data/service/login_service.dart';
+import 'package:whats_app_ui/common/widgets/cust_divider.dart';
+import 'package:whats_app_ui/common/widgets/cust_button.dart';
+import 'package:whats_app_ui/common/widgets/cust_text_formfield.dart';
 
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
