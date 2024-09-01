@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/utils/constants/colors.dart';
+
 import 'package:whats_app_ui/data/models/user_data_model.dart';
 import 'package:whats_app_ui/data/service/auth_service.dart';
+import 'package:whats_app_ui/utils/constants/colors.dart';
 
 class DetailChat extends StatefulWidget {
   const DetailChat({super.key, required this.index});
@@ -105,7 +106,7 @@ class _DetailChatState extends State<DetailChat> {
                     '  ${chats[index]} ',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                         backgroundColor: index % 2 == 0
-                            ? TColors.whatsAppGreen
+                            ? Tcolors.whatsAppGreen
                             : Colors.grey),
                     textAlign:
                         index % 2 == 0 ? TextAlign.right : TextAlign.start,
