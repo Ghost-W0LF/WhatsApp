@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
           //
           //Appbar
           appBar: AppBar(
-            backgroundColor: TColors.whatsAppGreen,
+            backgroundColor: Tcolors.whatsAppGreen,
             automaticallyImplyLeading: false,
             title: const Text('WhatsApp'),
             actions: [
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
             height: 40,
             width: 40,
             decoration: BoxDecoration(
-                color: TColors.whatsAppGreen,
+                color: Tcolors.whatsAppGreen,
                 borderRadius: BorderRadius.circular(50)),
             child: IconButton(
               onPressed: () {

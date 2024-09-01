@@ -28,7 +28,7 @@ class CustButton extends StatelessWidget {
               minimumSize: WidgetStateProperty.all(
                 Size(MediaQuery.of(context).size.width - 80, 50),
               ),
-              backgroundColor: WidgetStateProperty.all(TColors.whatsAppGreen),
+              backgroundColor: WidgetStateProperty.all(Tcolors.whatsAppGreen),
             ),
             onPressed: onPressed,
             child: Text(

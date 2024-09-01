@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/screens/login_page.dart';
+import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +14,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Loginpage(),
+      themeMode: ThemeMode.system,
+    theme: TAppTheme.lightTheme,
+      darkTheme: TAppTheme.darkTheme,
+      home: const Loginpage(),
     );
   }
 }
