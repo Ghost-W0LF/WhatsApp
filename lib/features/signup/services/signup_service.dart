@@ -2,13 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:whats_app_ui/utils/constants/t_url.dart';
 
 class SignupService {
-  final baseUrl = "https://tbe.thuprai.com/v1/api/signup/";
   Future<void> register_user(
       String email, String fullname, String password) async {
     try {
-      final response = await http.post(Uri.parse(baseUrl), body: {
+      final response = await http.post(Uri.parse(TUrl.signUpUrl), body: {
         "full_name": fullname,
         "email": email,
         "password": password,
@@ -19,7 +19,7 @@ class SignupService {
         debugPrint("Register Success");
       } else {
         debugPrint("Register Failed");
-        print('Login failed: ${response.statusCode} ${response.reasonPhrase}');
+        debugPrint('Login failed: ${response.statusCode} ${response.reasonPhrase}');
       }
     } catch (e) {
       debugPrint("error:$e");

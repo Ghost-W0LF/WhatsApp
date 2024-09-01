@@ -2,12 +2,11 @@ import 'dart:convert';
 
 import 'package:whats_app_ui/features/home_page/model/user_data_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:whats_app_ui/utils/constants/t_url.dart';
 
 class UserDataService {
-  static const String url = "https://reqres.in/api/users?page=2";
-
   Future<UserData> fetchUser() async {
-    final response = await http.get(Uri.parse(url));
+    final response = await http.get(Uri.parse(TUrl.dataUrl));
     if (response.statusCode == 200) {
       try {
         return UserData.fromJson(jsonDecode(response.body));

@@ -1,14 +1,13 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-
-const String baseUrl = "https://tbe.thuprai.com/v1/api/login/";
+import 'package:whats_app_ui/utils/constants/t_url.dart';
 
 class LoginService {
   Future<String?> login(String email, String password) async {
     try {
-      final response = await http.post(Uri.parse(baseUrl), body: {
+      final response = await http.post(Uri.parse(TUrl.loginUrl), body: {
         'username': email,
         'password': password,
       });
@@ -16,11 +15,11 @@ class LoginService {
         var data = jsonDecode(response.body.toString());
         return data['token'];
       } else {
-        print('Login failed: ${response.statusCode} ${response.reasonPhrase}');
+        debugPrint('Login failed: ${response.statusCode} ${response.reasonPhrase}');
         return null;
       }
     } catch (e) {
-      print(e.toString());
+      debugPrint(e.toString());
     }
     return null;
   }

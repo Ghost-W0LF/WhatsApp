@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:whats_app_ui/features/home_page/model/user_data_model.dart';
 import 'package:whats_app_ui/features/home_page/service/uesr_data_service.dart';
-import 'package:whats_app_ui/utils/constants/colors.dart';
+import 'package:whats_app_ui/utils/constants/t_colors.dart';
 
 class DetailChat extends StatefulWidget {
   const DetailChat({super.key, required this.index});

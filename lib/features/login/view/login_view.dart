@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/features/signup/view/signup_view.dart';
-import 'package:whats_app_ui/features/home_page/view/home_page.dart';
+import 'package:whats_app_ui/features/home_page/view/home_view.dart';
 
 import 'package:whats_app_ui/features/login/services/login_service.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
+import 'package:whats_app_ui/utils/constants/t_text.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -33,7 +34,7 @@ class _LoginpageState extends State<LoginView> {
       if (token != null) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) => const HomeView()),
         );
         debugPrint('Login successful, token: $token');
       } else {
@@ -66,91 +67,90 @@ class _LoginpageState extends State<LoginView> {
     }
 
     return Scaffold(
-        appBar: AppBar(
+        /* appBar: AppBar(
           automaticallyImplyLeading: false,
-        ),
+        ), */
         body: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            //
-            //Logo
-            const SizedBox(
-                height: 100,
-                width: 100,
-                child: Image(image: AssetImage(TImage.logoImage))),
-            const SizedBox(height: 30),
-            //
-            //Text
-            SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: Text(
-                  "Welcome to whats app",
-                  style: Theme.of(context).textTheme.displaySmall,
-                )),
-            //
-            //Second text
-            const SizedBox(height: 10),
-            SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: Text(
-                  "Provide your details, so you can be able to login",
-                  style: Theme.of(context).textTheme.bodyLarge,
-                )),
-
-            //
-            //Login Form
-            const SizedBox(height: 30),
-            Form(
-                child: Column(
-              children: [
-                CustTextFormField(
-                  controller: emailController,
-                  hintText: "Email",
-                  iconData: Icons.email,
-                ),
-                const SizedBox(height: 30),
-                CustTextFormField(
-                  controller: passwordController,
-                  obscureText: true,
-                  hintText: "Password",
-                  iconData: Icons.password,
-                ),
-              ],
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 90),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        //
+        //Logo
+        const SizedBox(
+            height: 100,
+            width: 100,
+            child: Image(image: AssetImage(TImage.logoImage))),
+        const SizedBox(height: 30),
+        //
+        //Text
+        SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Text(
+              Ttext.loginTitle,
+              style: Theme.of(context).textTheme.displaySmall,
             )),
-            //
-            //Login button
+        //
+        //Second text
+        const SizedBox(height: 10),
+        SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Text(
+              Ttext.loginSubTitle,
+              style: Theme.of(context).textTheme.bodyLarge,
+            )),
+
+        //
+        //Login Form
+        const SizedBox(height: 30),
+        Form(
+            child: Column(
+          children: [
+            CustTextFormField(
+              controller: emailController,
+              hintText: Ttext.email,
+              iconData: Icons.email,
+            ),
             const SizedBox(height: 30),
+            CustTextFormField(
+              controller: passwordController,
+              obscureText: true,
+              hintText: Ttext.password,
+              iconData: Icons.password,
+            ),
+          ],
+        )),
+        //
+        //Login button
+        const SizedBox(height: 30),
+        CustButton(
+          text: Ttext.login,
+          onPressed: () {
+            login();
+          },
+        ),
+        //
+        //Divider
+        const SizedBox(height: 30),
+        const CustDivider(),
+        //Text
+        const SizedBox(height: 20),
+        Row(
+          children: [
+            const Text(Ttext.dontHaveAccount),
+            //
+            //Signup Button
             CustButton(
-              text: "Login",
+              text: Ttext.signup,
+              isTextButton: true,
               onPressed: () {
-                login();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignupView()),
+                );
               },
             ),
-            //
-            //Divider
-            const SizedBox(height: 30),
-            const CustDivider(),
-            //Text
-            const SizedBox(height: 20),
-            Row(
-              children: [
-                const Text("If you donot have an account !!"),
-                //
-                //Signup Button
-                CustButton(
-                  text: "Signup",
-                  isTextButton: true,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignupView()),
-                    );
-                  },
-                ),
-              ],
-            )
-          ]),
-        ));
+          ],
+        )
+      ]),
+    ));
   }
 }

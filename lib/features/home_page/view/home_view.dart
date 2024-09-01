@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/utils/constants/colors.dart';
+import 'package:whats_app_ui/utils/constants/t_colors.dart';
 
 import 'package:whats_app_ui/features/contact/view/contact.dart';
 
 import 'package:whats_app_ui/features/home_page/widget/chat_listview.dart';
+import 'package:whats_app_ui/utils/constants/t_text.dart';
 import 'package:whats_app_ui/utils/helpers/thelper_function.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
                 ? Tcolors.whatsAppGreen.withOpacity(0.7)
                 : Tcolors.whatsAppGreen,
             automaticallyImplyLeading: false,
-            title: const Text('WhatsApp'),
+            title: const Text(Ttext.homepageTitlte),
             actions: [
               IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
               IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
@@ -34,9 +35,9 @@ class HomePage extends StatelessWidget {
               Tab(
                 icon: Icon(Icons.group),
               ),
-              Tab(text: "Chats"),
-              Tab(text: "Call"),
-              Tab(text: "Status"),
+              Tab(text: Ttext.chats),
+              Tab(text: Ttext.call),
+              Tab(text: Ttext.status),
             ]),
           ),
           body: const TabBarView(

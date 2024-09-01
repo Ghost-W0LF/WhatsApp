@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/features/signup/services/signup_service.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
+import 'package:whats_app_ui/utils/constants/t_text.dart';
 
 class SignupView extends StatelessWidget {
   SignupView({super.key});
@@ -18,7 +19,7 @@ class SignupView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Signup "),
+        title: const Text(Ttext.signup),
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -30,7 +31,7 @@ class SignupView extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              "You can create account, here!!",
+              Ttext.signupYouCanCreat,
               style: Theme.of(context).textTheme.displaySmall,
             ),
             const SizedBox(
@@ -47,7 +48,7 @@ class SignupView extends StatelessWidget {
                     Expanded(
                       child: CustTextFormField(
                         controller: nameController,
-                        hintText: "First Name",
+                        hintText: Ttext.firstName,
                         iconData: Icons.person,
                       ),
                     ),
@@ -67,7 +68,7 @@ class SignupView extends StatelessWidget {
                 //email
                 CustTextFormField(
                   controller: emailComtroller,
-                  hintText: "Email",
+                  hintText: Ttext.email,
                   iconData: Icons.email,
                 ),
                 const SizedBox(
@@ -77,7 +78,7 @@ class SignupView extends StatelessWidget {
                 //password
                 CustTextFormField(
                   controller: passwordController,
-                  hintText: "Password",
+                  hintText: Ttext.password,
                   iconData: Icons.email,
                 ),
                 const SizedBox(
@@ -96,7 +97,7 @@ class SignupView extends StatelessWidget {
             //
             //Signup button
             CustButton(
-              text: "Creat account",
+              text: Ttext.creatAccount,
               onPressed: () {
                 _register.register_user(emailComtroller.text,
                     nameController.text, passwordController.text);
