@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:whats_app_ui/data/service/signup_service.dart';
-import 'package:whats_app_ui/common/widgets/cust_button.dart';
-import 'package:whats_app_ui/common/widgets/cust_text_formfield.dart';
+import 'package:whats_app_ui/features/signup/services/signup_service.dart';
+import 'package:whats_app_ui/base/widgets/cust_button.dart';
+import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
 
-class SignupPage extends StatelessWidget {
-  SignupPage({super.key});
+class SignupView extends StatelessWidget {
+  SignupView({super.key});
   final TextEditingController nameController = TextEditingController();
   //final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailComtroller = TextEditingController();

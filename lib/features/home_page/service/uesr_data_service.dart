@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:whats_app_ui/data/models/user_data_model.dart';
+import 'package:whats_app_ui/features/home_page/model/user_data_model.dart';
 import 'package:http/http.dart' as http;
 
-class AuthService {
+class UserDataService {
   static const String url = "https://reqres.in/api/users?page=2";
 
   Future<UserData> fetchUser() async {

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/screens/home_page.dart';
+import 'package:whats_app_ui/features/signup/view/signup_view.dart';
+import 'package:whats_app_ui/features/home_page/view/home_page.dart';
 
-import 'package:whats_app_ui/screens/signup_page.dart';
-import 'package:whats_app_ui/data/service/login_service.dart';
-import 'package:whats_app_ui/common/widgets/cust_divider.dart';
-import 'package:whats_app_ui/common/widgets/cust_button.dart';
-import 'package:whats_app_ui/common/widgets/cust_text_formfield.dart';
+import 'package:whats_app_ui/features/login/services/login_service.dart';
+import 'package:whats_app_ui/base/widgets/cust_divider.dart';
+import 'package:whats_app_ui/base/widgets/cust_button.dart';
+import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
+import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 
-class Loginpage extends StatefulWidget {
-  const Loginpage({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<Loginpage> createState() => _LoginpageState();
+  State<LoginView> createState() => _LoginpageState();
 }
 
-class _LoginpageState extends State<Loginpage> {
+class _LoginpageState extends State<LoginView> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
@@ -23,7 +24,7 @@ class _LoginpageState extends State<Loginpage> {
 
   @override
   Widget build(BuildContext context) {
-    void _login() async {
+    void login() async {
       String email = emailController.text.trim();
       String password = passwordController.text.trim();
 
@@ -77,7 +78,7 @@ class _LoginpageState extends State<Loginpage> {
             const SizedBox(
                 height: 100,
                 width: 100,
-                child: Image(image: AssetImage('assets/logo.png'))),
+                child: Image(image: AssetImage(TImage.logoImage))),
             const SizedBox(height: 30),
             //
             //Text
@@ -123,7 +124,7 @@ class _LoginpageState extends State<Loginpage> {
             CustButton(
               text: "Login",
               onPressed: () {
-                _login();
+                login();
               },
             ),
             //
@@ -143,7 +144,7 @@ class _LoginpageState extends State<Loginpage> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SignupPage()),
+                      MaterialPageRoute(builder: (context) => SignupView()),
                     );
                   },
                 ),

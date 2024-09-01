@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:whats_app_ui/data/models/user_data_model.dart';
-import 'package:whats_app_ui/data/service/auth_service.dart';
+import 'package:whats_app_ui/features/home_page/model/user_data_model.dart';
+import 'package:whats_app_ui/features/home_page/service/uesr_data_service.dart';
 import 'package:whats_app_ui/utils/constants/colors.dart';
 
 class DetailChat extends StatefulWidget {
@@ -25,7 +25,7 @@ class _DetailChatState extends State<DetailChat> {
   }
 
   void fetchUserData() async {
-    AuthService authService = AuthService();
+    UserDataService authService = UserDataService();
     UserData auth = await authService.fetchUser();
     setState(() {
       _auth = auth;

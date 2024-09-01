@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/data/models/user_data_model.dart';
-import 'package:whats_app_ui/data/service/auth_service.dart';
+import 'package:whats_app_ui/features/home_page/model/user_data_model.dart';
+import 'package:whats_app_ui/features/home_page/service/uesr_data_service.dart';
+import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 
 import 'package:whats_app_ui/utils/constants/colors.dart';
-import 'package:whats_app_ui/common/widgets/detail_chat.dart';
+import 'package:whats_app_ui/features/detailed_chat/view/detail_chat.dart';
 
 class ChatListView extends StatefulWidget {
   const ChatListView({
@@ -18,14 +19,13 @@ class _ChatListViewState extends State<ChatListView> {
   UserData? _auth;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     fetchUserData();
   }
 
   void fetchUserData() async {
-    AuthService authService = AuthService();
+    UserDataService authService = UserDataService();
     UserData auth = await authService.fetchUser();
     setState(() {
       _auth = auth;
@@ -34,12 +34,17 @@ class _ChatListViewState extends State<ChatListView> {
 
   @override
   Widget build(BuildContext context) {
+    //
+    //list View builder
     return ListView.builder(
         itemCount: _auth?.data?.length ?? 4,
         itemBuilder: (_, index) {
           return _auth == null
               ? const CircularProgressIndicator()
               : ListTile(
+                  //
+                  //
+                  //Gesture detector
                   onTap: () {
                     Navigator.push(
                       context,
@@ -54,7 +59,7 @@ class _ChatListViewState extends State<ChatListView> {
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(
                         _auth?.data?[index].avatar.toString() ??
-                            'https://picsum.photos/250?image=9'),
+                            TImage.networkImage),
                   ),
                   //
                   //UserName and message
@@ -66,7 +71,6 @@ class _ChatListViewState extends State<ChatListView> {
                   subtitle: Text("Hi"),
                   trailing: Column(
                     children: [
-                      /*    Text(chatDetailes[index].time), */
                       Container(
                         width: 20,
                         height: 20,

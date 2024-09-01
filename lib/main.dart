@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/screens/login_page.dart';
+import 'package:whats_app_ui/features/login/view/login_view.dart';
 import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
     theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      home: const Loginpage(),
+      home: const LoginView(),
     );
   }
 }
