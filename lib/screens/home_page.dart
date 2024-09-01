@@ -4,12 +4,14 @@ import 'package:whats_app_ui/utils/constants/colors.dart';
 import 'package:whats_app_ui/screens/contact.dart';
 
 import 'package:whats_app_ui/common/widgets/chat_listview.dart';
+import 'package:whats_app_ui/utils/helpers/thelper_function.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    bool dark = THelperFunction.isDarkMode(context);
     return DefaultTabController(
         length: 4,
         initialIndex: 1,
@@ -17,7 +19,9 @@ class HomePage extends StatelessWidget {
           //
           //Appbar
           appBar: AppBar(
-            backgroundColor: Tcolors.whatsAppGreen,
+            backgroundColor: dark
+                ? Tcolors.whatsAppGreen.withOpacity(0.7)
+                : Tcolors.whatsAppGreen,
             automaticallyImplyLeading: false,
             title: const Text('WhatsApp'),
             actions: [
