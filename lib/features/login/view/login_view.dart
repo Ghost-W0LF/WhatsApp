@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/features/home_page/view/home_view.dart';
 
-import 'package:whats_app_ui/features/login/services/login_function.dart';
+import 'package:whats_app_ui/features/login/services/login_service.dart';
 
 import 'package:whats_app_ui/features/signup/view/signup_view.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
@@ -22,11 +23,29 @@ class _LoginpageState extends State<LoginView> {
   //global key
   final _loginFormKey = GlobalKey<FormState>();
 
+  //text TextEditingController
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
+//instance of login
+  final LoginService _loginService = LoginService();
+  //login function to login
+  void login() async {
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
 
-  final loginFunction = LoginFunction;
+    String? token = await _loginService.login(email, password);
+    if (!mounted) return null;
+    if (token != null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomeView()),
+      );
+      debugPrint('Login successful, token: $token');
+    } else {
+      // Show an error message
+      debugPrint('Login failed: $token');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -100,11 +119,7 @@ class _LoginpageState extends State<LoginView> {
           //on pressed method
           onPressed: () {
             if (_loginFormKey.currentState!.validate()) {
-              LoginFunction(
-                emailController: emailController,
-                passwordController: passwordController,
-                context: context,
-              ).login();
+              login();
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Processing Data')),
               );
