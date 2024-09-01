@@ -7,23 +7,29 @@ class CustTextFormField extends StatelessWidget {
     this.hintText,
     this.iconData,
     this.obscureText = false,
+    this.validator,
   });
 
   final TextEditingController controller;
   final String? hintText;
   final IconData? iconData;
   final bool obscureText;
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      validator: (controller) {
-        if (controller == null || controller.isEmpty) {
-          return 'Cannot be empty';
+      validator:validator, /* (value) {
+        if (value == null || value.isEmpty) {
+          return 'Empty';
         }
-        return null;
-      },
+        if (!value.contains('@')) {
+          return 'Email should have @';
+        } else {
+          return null;
+        }
+      }, */
       obscureText: obscureText,
       decoration: InputDecoration(
           prefixIcon: Icon(iconData),

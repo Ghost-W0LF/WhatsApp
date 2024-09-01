@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/features/signup/view/signup_view.dart';
-import 'package:whats_app_ui/features/home_page/view/home_view.dart';
 
-import 'package:whats_app_ui/features/login/services/login_service.dart';
+import 'package:whats_app_ui/features/login/services/login_function.dart';
+
+import 'package:whats_app_ui/features/signup/view/signup_view.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
+import 'package:whats_app_ui/utils/validator/validator.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -17,55 +18,18 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginpageState extends State<LoginView> {
+  //
+  //global key
+  final _loginFormKey = GlobalKey<FormState>();
+
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
 
-  final LoginService _loginService = LoginService();
+  final loginFunction = LoginFunction;
 
   @override
   Widget build(BuildContext context) {
-    void login() async {
-      String email = emailController.text.trim();
-      String password = passwordController.text.trim();
-
-      String? token = await _loginService.login(email, password);
-
-      if (token != null) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => const HomeView()),
-        );
-        debugPrint('Login successful, token: $token');
-      } else {
-        if (emailController.text.isEmpty ||
-            !emailController.text.contains('@') ||
-            !emailController.text.contains('.com')) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Invalid Email'),
-            ),
-          );
-        } else if (passwordController.text.isEmpty ||
-            passwordController.text.length != 8) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Invalid Password'),
-            ),
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text('Invalid Email or Password'),
-            ),
-          );
-        }
-
-        // Show an error message
-        debugPrint('Login failed: $token');
-      }
-    }
-
     return Scaffold(
         /* appBar: AppBar(
           automaticallyImplyLeading: false,
@@ -102,29 +66,54 @@ class _LoginpageState extends State<LoginView> {
         //Login Form
         const SizedBox(height: 30),
         Form(
+            key: _loginFormKey,
             child: Column(
-          children: [
-            CustTextFormField(
-              controller: emailController,
-              hintText: Ttext.email,
-              iconData: Icons.email,
-            ),
-            const SizedBox(height: 30),
-            CustTextFormField(
-              controller: passwordController,
-              obscureText: true,
-              hintText: Ttext.password,
-              iconData: Icons.password,
-            ),
-          ],
-        )),
+              children: [
+                //
+                //eamil
+                CustTextFormField(
+                  controller: emailController,
+                  validator: emailValidators,
+                  hintText: Ttext.email,
+                  iconData: Icons.email,
+                ),
+                const SizedBox(height: 30),
+                //
+                //
+                //password
+                CustTextFormField(
+                  controller: passwordController,
+                  validator: passwordValidators,
+                  obscureText: true,
+                  hintText: Ttext.password,
+                  iconData: Icons.password,
+                ),
+              ],
+            )),
         //
         //Login button
         const SizedBox(height: 30),
         CustButton(
           text: Ttext.login,
+          //
+          //
+          //on pressed method
           onPressed: () {
-            login();
+            if (_loginFormKey.currentState!.validate()) {
+              LoginFunction(
+                emailController: emailController,
+                passwordController: passwordController,
+                context: context,
+              ).login();
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Processing Data')),
+              );
+            } else {
+              debugPrint("error");
+            }
+
+/* 
+            */
           },
         ),
         //
