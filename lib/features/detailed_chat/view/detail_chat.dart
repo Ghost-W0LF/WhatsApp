@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:whats_app_ui/features/detailed_chat/model/detail_chat_model.dart';
 
 import 'package:whats_app_ui/features/home_page/model/user_data_model.dart';
 import 'package:whats_app_ui/features/home_page/service/uesr_data_service.dart';
@@ -15,12 +17,9 @@ class DetailChat extends StatefulWidget {
 }
 
 class _DetailChatState extends State<DetailChat> {
-  List<String> chats = [];
-
   UserData? _auth;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     fetchUserData();
@@ -38,12 +37,6 @@ class _DetailChatState extends State<DetailChat> {
   Widget build(BuildContext context) {
     TextEditingController messageController = TextEditingController();
 
-    void updateChat() {
-      setState(() {
-        chats.add(messageController.text);
-      });
-    }
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey,
@@ -57,8 +50,8 @@ class _DetailChatState extends State<DetailChat> {
         title: Row(
           children: [
             CircleAvatar(
-              backgroundImage: NetworkImage(_auth?.data?[widget.index].avatar ??
-                  TImage.networkImage),
+              backgroundImage: NetworkImage(
+                  _auth?.data?[widget.index].avatar ?? TImage.networkImage),
             ),
             const SizedBox(
               width: 5,
@@ -97,25 +90,32 @@ class _DetailChatState extends State<DetailChat> {
       //
       body: Stack(children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
-          child: ListView.builder(
-              shrinkWrap: false,
-              itemCount: chats.length,
-              itemBuilder: (_, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 5.0),
-                  child: Text(
-                    '  ${chats[index]} ',
-                    style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        backgroundColor: index % 2 == 0
-                            ? Tcolors.whatsAppGreen
-                            : Colors.grey),
-                    textAlign:
-                        index % 2 == 0 ? TextAlign.right : TextAlign.start,
-                  ),
-                );
-              }),
-        ),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 20),
+            child: Consumer<DetailChatModel>(
+              builder: (context, ins, child) {
+                return ListView.builder(
+                    shrinkWrap: false,
+                    itemCount: ins.chats.length,
+                    itemBuilder: (_, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5.0),
+                        child: Text(
+                          '  ${ins.chats[index]} ',
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall
+                              ?.copyWith(
+                                  backgroundColor: index % 2 == 0
+                                      ? Tcolors.whatsAppGreen
+                                      : Colors.grey),
+                          textAlign: index % 2 == 0
+                              ? TextAlign.right
+                              : TextAlign.start,
+                        ),
+                      );
+                    });
+              },
+            )),
 
         //
         //bottom text field
@@ -140,7 +140,10 @@ class _DetailChatState extends State<DetailChat> {
                       ),
                       IconButton(
                           onPressed: () {
-                            updateChat();
+                            context
+                                .read<DetailChatModel>()
+                                .updateChat(messageController);
+
                             messageController.clear();
                           },
                           icon: const Icon(Icons.send))

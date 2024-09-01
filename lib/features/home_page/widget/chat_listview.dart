@@ -37,7 +37,7 @@ class _ChatListViewState extends State<ChatListView> {
     //
     //list View builder
     return ListView.builder(
-        itemCount: _auth?.data?.length ?? 4,
+        itemCount: _auth?.data?.length,
         itemBuilder: (_, index) {
           return _auth == null
               ? const CircularProgressIndicator()
@@ -64,11 +64,11 @@ class _ChatListViewState extends State<ChatListView> {
                   //
                   //UserName and message
                   title: Text(
-                    _auth?.data?[index].email.toString() ?? "no data",
+                    _auth?.data?[index].email?.toString() ?? "no data",
                     style: Theme.of(context).textTheme.headlineSmall,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  subtitle: Text("Hi"),
+                  subtitle: const Text("Hi"),
                   trailing: Column(
                     children: [
                       Container(

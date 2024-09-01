@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/features/detailed_chat/model/detail_chat_model.dart';
 import 'package:whats_app_ui/features/login/view/login_view.dart';
 import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => DetailChatModel()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,7 +24,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       themeMode: ThemeMode.system,
-    theme: TAppTheme.lightTheme,
+      theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       home: const LoginView(),
     );
