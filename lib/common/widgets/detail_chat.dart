@@ -56,7 +56,7 @@ class _DetailChatState extends State<DetailChat> {
           children: [
             CircleAvatar(
               backgroundImage: NetworkImage(_auth?.data?[widget.index].avatar ??
-                  "https://www.rawpixel.com/search/person%20icon"),
+                  "https://picsum.photos/250?image=9"),
             ),
             const SizedBox(
               width: 5,

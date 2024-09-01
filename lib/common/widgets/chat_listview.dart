@@ -54,7 +54,7 @@ class _ChatListViewState extends State<ChatListView> {
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(
                         _auth?.data?[index].avatar.toString() ??
-                            "https://www.rawpixel.com/search/person%20icon"),
+                            'https://picsum.photos/250?image=9'),
                   ),
                   //
                   //UserName and message
