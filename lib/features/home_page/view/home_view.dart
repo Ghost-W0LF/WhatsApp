@@ -61,7 +61,7 @@ class HomeView extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const ContactScreen()),
+                      builder: (context) => const ContactView()),
                 );
               },
               icon: const Icon(Icons.message_rounded),

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:whats_app_ui/features/home_page/model/user_data_model.dart';
 import 'package:whats_app_ui/features/home_page/service/uesr_data_service.dart';
+import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
+import 'package:whats_app_ui/utils/constants/t_text.dart';
 
 class DetailChat extends StatefulWidget {
   const DetailChat({super.key, required this.index});
@@ -56,7 +58,7 @@ class _DetailChatState extends State<DetailChat> {
           children: [
             CircleAvatar(
               backgroundImage: NetworkImage(_auth?.data?[widget.index].avatar ??
-                  "https://picsum.photos/250?image=9"),
+                  TImage.networkImage),
             ),
             const SizedBox(
               width: 5,
@@ -73,7 +75,7 @@ class _DetailChatState extends State<DetailChat> {
                   ),
                 ),
                 Text(
-                  "tap here for contact info",
+                  Ttext.tapForContact,
                   style: Theme.of(context).textTheme.bodySmall,
                 )
               ],

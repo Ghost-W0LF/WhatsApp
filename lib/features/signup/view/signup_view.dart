@@ -8,14 +8,12 @@ import 'package:whats_app_ui/utils/constants/t_text.dart';
 class SignupView extends StatelessWidget {
   SignupView({super.key});
   final TextEditingController nameController = TextEditingController();
-  //final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailComtroller = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  //final TextEditingController rePasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    final _register = SignupService();
+    final register = SignupService();
 
     return Scaffold(
       appBar: AppBar(
@@ -52,13 +50,6 @@ class SignupView extends StatelessWidget {
                         iconData: Icons.person,
                       ),
                     ),
-                    /*  Expanded(
-                      child: CustTextFormField(
-                        controller: lastNameController,
-                        hintText: "Last Name",
-                        iconData: Icons.person_2,
-                      ),
-                    ), */
                   ],
                 ),
                 const SizedBox(
@@ -84,11 +75,7 @@ class SignupView extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                /* CustTextFormField(
-                  controller: rePasswordController,
-                  hintText: "Confirm Password",
-                  iconData: Icons.email,
-                ), */
+
                 const SizedBox(
                   height: 40,
                 ),
@@ -99,8 +86,8 @@ class SignupView extends StatelessWidget {
             CustButton(
               text: Ttext.creatAccount,
               onPressed: () {
-                _register.register_user(emailComtroller.text,
-                    nameController.text, passwordController.text);
+                register.registerUser(emailComtroller.text, nameController.text,
+                    passwordController.text);
               },
             )
           ],

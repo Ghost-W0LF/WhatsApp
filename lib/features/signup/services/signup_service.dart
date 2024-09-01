@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:whats_app_ui/utils/constants/t_url.dart';
 
 class SignupService {
-  Future<void> register_user(
+  Future<void> registerUser(
       String email, String fullname, String password) async {
     try {
       final response = await http.post(Uri.parse(TUrl.signUpUrl), body: {

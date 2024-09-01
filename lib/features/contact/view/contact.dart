@@ -4,8 +4,8 @@ import 'package:whats_app_ui/utils/constants/t_colors.dart';
 import 'package:whats_app_ui/features/home_page/widget/chat_listview.dart';
 import 'package:whats_app_ui/base/widgets/cust_list_tile.dart';
 
-class ContactScreen extends StatelessWidget {
-  const ContactScreen({super.key});
+class ContactView extends StatelessWidget {
+  const ContactView({super.key});
 
   @override
   Widget build(BuildContext context) {

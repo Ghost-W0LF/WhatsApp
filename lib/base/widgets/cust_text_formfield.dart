@@ -20,16 +20,7 @@ class CustTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      validator:validator, /* (value) {
-        if (value == null || value.isEmpty) {
-          return 'Empty';
-        }
-        if (!value.contains('@')) {
-          return 'Email should have @';
-        } else {
-          return null;
-        }
-      }, */
+      validator:validator,
       obscureText: obscureText,
       decoration: InputDecoration(
           prefixIcon: Icon(iconData),

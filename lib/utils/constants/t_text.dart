@@ -5,6 +5,7 @@ class Ttext {
   static const String signup = 'Signup';
   static const String email = 'Email';
   static const String password = 'Password';
+  static const String tapForContact = "tap here for contact info";
   //form
   static const String firstName = "First Name";
 
