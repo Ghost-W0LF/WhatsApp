@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/features/home_view/view/home_view.dart';
+import 'package:whats_app_ui/view/home_view/view/home_view.dart';
 
-import 'package:whats_app_ui/features/login_view/services/login_service.dart';
+import 'package:whats_app_ui/view/login_view/services/login_service.dart';
 
-import 'package:whats_app_ui/features/signup_view/view/signup_view.dart';
+import 'package:whats_app_ui/view/signup_view/view/signup_view.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';

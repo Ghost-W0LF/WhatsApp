@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
 
-import 'package:whats_app_ui/features/contact/view/contact.dart';
+import 'package:whats_app_ui/view/contact/view/contact.dart';
 
-import 'package:whats_app_ui/features/home_view/widget/chat_listview.dart';
+import 'package:whats_app_ui/view/home_view/widget/chat_listview.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
 import 'package:whats_app_ui/utils/helpers/thelper_function.dart';
 

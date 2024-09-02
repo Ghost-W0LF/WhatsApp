@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:whats_app_ui/features/home_view/model/user_data_model.dart';
+import 'package:whats_app_ui/view/home_view/model/user_data_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:whats_app_ui/utils/constants/t_url.dart';
 

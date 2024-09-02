@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:whats_app_ui/features/detailed_chat/model/detail_chat_model.dart';
+import 'package:whats_app_ui/view/detailed_chat/model/detail_chat_model.dart';
 
-import 'package:whats_app_ui/features/home_view/model/user_data_model.dart';
-import 'package:whats_app_ui/features/home_view/service/uesr_data_service.dart';
+import 'package:whats_app_ui/view/home_view/model/user_data_model.dart';
+import 'package:whats_app_ui/view/home_view/service/uesr_data_service.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
