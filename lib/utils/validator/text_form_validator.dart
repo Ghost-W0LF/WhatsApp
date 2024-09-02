@@ -1,4 +1,4 @@
-// Email validator
+class TextFormValidators {// Email validator
 String? emailValidators(value) {
   if (value == null || value.isEmpty) {
     return 'Please enter your email';
@@ -27,4 +27,5 @@ String? userNameValidators(value) {
   }
 
   return null;
+}
 }

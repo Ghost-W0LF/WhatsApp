@@ -20,9 +20,10 @@ class HomeView extends StatelessWidget {
           //
           //Appbar
           appBar: AppBar(
-            backgroundColor: dark
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+            /* dark
                 ? Tcolors.whatsAppGreen.withOpacity(0.7)
-                : Tcolors.whatsAppGreen,
+                : Tcolors.whatsAppGreen, */
             automaticallyImplyLeading: false,
             title: const Text(Ttext.homepageTitlte),
             actions: [

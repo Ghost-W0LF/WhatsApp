@@ -21,7 +21,7 @@ class TAppTheme {
     brightness: Brightness.dark,
     dividerColor: Tcolors.LightGrey,
     appBarTheme:
-        AppBarTheme(backgroundColor: Tcolors.whatsAppGreen.withOpacity(0.8)),
+        AppBarTheme(backgroundColor: Tcolors.whatsAppGreen.withOpacity(0.6)),
     textTheme: TTextTheme.darkTextTheme,
   );
 }

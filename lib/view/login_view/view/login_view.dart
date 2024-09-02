@@ -9,7 +9,7 @@ import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
-import 'package:whats_app_ui/utils/validator/validator.dart';
+import 'package:whats_app_ui/utils/validator/text_form_validator.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -98,7 +98,7 @@ class _LoginpageState extends State<LoginView> {
                 //eamil
                 CustTextFormField(
                   controller: emailController,
-                  validator: emailValidators,
+                  validator: TextFormValidators().emailValidators,
                   hintText: Ttext.email,
                   iconData: Icons.email,
                 ),
@@ -108,7 +108,7 @@ class _LoginpageState extends State<LoginView> {
                 //password
                 CustTextFormField(
                   controller: passwordController,
-                  validator: passwordValidators,
+                  validator: TextFormValidators().passwordValidators,
                   obscureText: true,
                   hintText: Ttext.password,
                   iconData: Icons.password,

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/utils/validator/text_form_validator.dart';
 
 import 'package:whats_app_ui/view/signup_view/services/signup_service.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
-import 'package:whats_app_ui/utils/validator/validator.dart';
+
 
 class SignupView extends StatelessWidget {
   SignupView({super.key});
@@ -50,7 +51,7 @@ class SignupView extends StatelessWidget {
                           //user name
                           child: CustTextFormField(
                             controller: nameController,
-                            validator: userNameValidators,
+                            validator:TextFormValidators().userNameValidators,
                             hintText: Ttext.firstName,
                             iconData: Icons.person,
                           ),
@@ -64,7 +65,7 @@ class SignupView extends StatelessWidget {
                     //email
                     CustTextFormField(
                       controller: emailComtroller,
-                      validator: emailValidators,
+                      validator:TextFormValidators().emailValidators,
                       hintText: Ttext.email,
                       iconData: Icons.email,
                     ),
@@ -75,7 +76,7 @@ class SignupView extends StatelessWidget {
                     //password
                     CustTextFormField(
                       controller: passwordController,
-                      validator: passwordValidators,
+                      validator:TextFormValidators().passwordValidators,
                       hintText: Ttext.password,
                       iconData: Icons.email,
                     ),
