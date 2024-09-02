@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/views/detailed_chat/model/detail_chat_model.dart';
-
+import 'package:whats_app_ui/views/login_view/services/toeken_storage.dart';
 
 import 'package:whats_app_ui/views/login_view/view/login_view.dart';
 import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
@@ -8,7 +8,14 @@ import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+  TokenStorage tokenStorage = TokenStorage();
+  String? savedToken = await tokenStorage.readToken();
+
+  if (savedToken != null) {
+    debugPrint("Saved Token is: $savedToken");
+  } else {
+    debugPrint("notoken Saved");
+  }
 
   runApp(
     MultiProvider(

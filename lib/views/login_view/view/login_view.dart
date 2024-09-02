@@ -49,7 +49,6 @@ class _LoginpageState extends State<LoginView> {
       );
 
       debugPrint('Login successful, token: $tkn');
-
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Invalid Email or Password')),
@@ -61,19 +60,39 @@ class _LoginpageState extends State<LoginView> {
     }
   }
 
-
-
   @override
   void dispose() {
-   
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
   }
 
+  //
+  //token
+
+  TokenStorage tokenStorage = TokenStorage();
+  void checkToken() async {
+    String? savedToken = await tokenStorage.readToken();
+    if (savedToken != null) {
+      setState(() {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeView()),
+        );
+      });
+    } else {
+      return null;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkToken();
+  }
+
   @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
         body: SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 90),
