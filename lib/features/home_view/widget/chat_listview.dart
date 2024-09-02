@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/features/home_page/model/user_data_model.dart';
-import 'package:whats_app_ui/features/home_page/service/uesr_data_service.dart';
+import 'package:whats_app_ui/features/home_view/model/user_data_model.dart';
+import 'package:whats_app_ui/features/home_view/service/uesr_data_service.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 
 import 'package:whats_app_ui/utils/constants/t_colors.dart';

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/features/home_page/view/home_view.dart';
+import 'package:whats_app_ui/features/home_view/view/home_view.dart';
 
-import 'package:whats_app_ui/features/login/services/login_service.dart';
+import 'package:whats_app_ui/features/login_view/services/login_service.dart';
 
-import 'package:whats_app_ui/features/signup/view/signup_view.dart';
+import 'package:whats_app_ui/features/signup_view/view/signup_view.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
@@ -48,11 +48,17 @@ class _LoginpageState extends State<LoginView> {
   }
 
   @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the widget tree.
+    // This also removes the _printLatestValue listener.
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        /* appBar: AppBar(
-          automaticallyImplyLeading: false,
-        ), */
         body: SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 90),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -126,9 +132,6 @@ class _LoginpageState extends State<LoginView> {
             } else {
               debugPrint("error");
             }
-
-/* 
-            */
           },
         ),
         //
