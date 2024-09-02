@@ -5,6 +5,7 @@ import 'package:whats_app_ui/views/contact/view/contact.dart';
 
 import 'package:whats_app_ui/views/home_view/widget/chat_listview.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
+import 'package:whats_app_ui/views/login_view/services/toeken_storage.dart';
 import 'package:whats_app_ui/views/login_view/view/login_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -12,6 +13,9 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TokenStorage tokenStorage = TokenStorage();
+
+    Future<dynamic> tkn = tokenStorage.readToken();
     return DefaultTabController(
         length: 4,
         initialIndex: 1,
@@ -24,9 +28,16 @@ class HomeView extends StatelessWidget {
             automaticallyImplyLeading: false,
             title: const Text(Ttext.homepageTitlte),
             actions: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
               IconButton(
                   onPressed: () {
+                    debugPrint("The Token Saved is${tkn}");
+                  },
+                  icon:
+                      /*  tkn == null ?const Icon(Icons.search) : */ const Icon(
+                          Icons.search)),
+              IconButton(
+                  onPressed: () {
+                    tokenStorage.deletToken('token');
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:whats_app_ui/views/home_view/view/home_view.dart';
 
 import 'package:whats_app_ui/views/login_view/services/login_service.dart';
+import 'package:whats_app_ui/views/login_view/services/toeken_storage.dart';
 
 import 'package:whats_app_ui/views/signup_view/view/signup_view.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
@@ -29,6 +30,7 @@ class _LoginpageState extends State<LoginView> {
   final TextEditingController passwordController = TextEditingController();
 //instance of login
   final LoginService _loginService = LoginService();
+
   //login function to login
   void login() async {
     String email = emailController.text.trim();
@@ -37,29 +39,33 @@ class _LoginpageState extends State<LoginView> {
     String? token = await _loginService.login(email, password);
 
     if (!mounted) return null;
+    String tkn = '$token';
     if (token != null) {
-      //
-
       //
       //
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomeView()),
       );
-      debugPrint('Login successful, token: $token');
+
+      debugPrint('Login successful, token: $tkn');
+
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Invalid Email or Password')),
       );
+      //
+      //
       // Show an error message
       debugPrint('Login failed: $token');
     }
   }
 
+
+
   @override
   void dispose() {
-    // Clean up the controller when the widget is removed from the widget tree.
-    // This also removes the _printLatestValue listener.
+   
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -67,6 +73,7 @@ class _LoginpageState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
         body: SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 90),
@@ -135,6 +142,7 @@ class _LoginpageState extends State<LoginView> {
           onPressed: () {
             if (_loginFormKey.currentState!.validate()) {
               login();
+
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
                   content: Text('Processing Data'),
