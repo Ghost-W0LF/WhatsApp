@@ -5,14 +5,13 @@ import 'package:whats_app_ui/view/contact/view/contact.dart';
 
 import 'package:whats_app_ui/view/home_view/widget/chat_listview.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
-import 'package:whats_app_ui/utils/helpers/thelper_function.dart';
+import 'package:whats_app_ui/view/login_view/view/login_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    bool dark = THelperFunction.isDarkMode(context);
     return DefaultTabController(
         length: 4,
         initialIndex: 1,
@@ -21,14 +20,20 @@ class HomeView extends StatelessWidget {
           //Appbar
           appBar: AppBar(
             backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-            /* dark
-                ? Tcolors.whatsAppGreen.withOpacity(0.7)
-                : Tcolors.whatsAppGreen, */
+
             automaticallyImplyLeading: false,
             title: const Text(Ttext.homepageTitlte),
             actions: [
               IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
+              IconButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginView()),
+                    );
+                  },
+                  icon: const Icon(Icons.logout))
             ],
             //
             //Tabs
