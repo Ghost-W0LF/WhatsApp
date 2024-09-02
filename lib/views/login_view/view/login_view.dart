@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/view/home_view/view/home_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:whats_app_ui/views/home_view/view/home_view.dart';
 
-import 'package:whats_app_ui/view/login_view/services/login_service.dart';
+import 'package:whats_app_ui/views/login_view/services/login_service.dart';
 
-import 'package:whats_app_ui/view/signup_view/view/signup_view.dart';
+import 'package:whats_app_ui/views/signup_view/view/signup_view.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
@@ -34,14 +35,22 @@ class _LoginpageState extends State<LoginView> {
     String password = passwordController.text.trim();
 
     String? token = await _loginService.login(email, password);
+
     if (!mounted) return null;
     if (token != null) {
+      //
+
+      //
+      //
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomeView()),
       );
       debugPrint('Login successful, token: $token');
     } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Invalid Email or Password')),
+      );
       // Show an error message
       debugPrint('Login failed: $token');
     }
@@ -127,7 +136,10 @@ class _LoginpageState extends State<LoginView> {
             if (_loginFormKey.currentState!.validate()) {
               login();
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Processing Data')),
+                const SnackBar(
+                  content: Text('Processing Data'),
+                  duration: Duration(milliseconds: 500),
+                ),
               );
             } else {
               debugPrint("error");

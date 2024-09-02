@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/view/home_view/model/user_data_model.dart';
-import 'package:whats_app_ui/view/home_view/service/uesr_data_service.dart';
+import 'package:whats_app_ui/views/home_view/model/user_data_model.dart';
+import 'package:whats_app_ui/views/home_view/service/uesr_data_service.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
-import 'package:whats_app_ui/view/detailed_chat/view/detail_chat.dart';
+import 'package:whats_app_ui/views/detailed_chat/view/detail_chat.dart';
 
 class ChatListView extends StatefulWidget {
   const ChatListView({
