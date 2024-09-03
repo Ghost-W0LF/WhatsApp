@@ -17,11 +17,11 @@ class TAppTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     scaffoldBackgroundColor: const Color.fromARGB(255, 32, 32, 32),
-    primaryColor: Tcolors.LightGrey,
+    primaryColor: Tcolors.lightGrey,
     brightness: Brightness.dark,
-    dividerColor: Tcolors.LightGrey,
+    dividerColor: Tcolors.lightGrey,
     appBarTheme:
-        AppBarTheme(backgroundColor: Tcolors.whatsAppGreen.withOpacity(0.6)),
+        AppBarTheme(backgroundColor: Tcolors.whatsAppGreen.withOpacity(0.8)),
     textTheme: TTextTheme.darkTextTheme,
   );
 }

@@ -9,19 +9,9 @@ class UserData {
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
-        data!.add(new Data.fromJson(v));
+        data!.add(Data.fromJson(v));
       });
     }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
-
-    if (this.data != null) {
-      data['data'] = this.data!.map((v) => v.toJson()).toList();
-    }
-
-    return data;
   }
 }
 
@@ -40,15 +30,5 @@ class Data {
     firstName = json['first_name'];
     lastName = json['last_name'];
     avatar = json['avatar'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = id;
-    data['email'] = email;
-    data['first_name'] = firstName;
-    data['last_name'] = lastName;
-    data['avatar'] = avatar;
-    return data;
   }
 }

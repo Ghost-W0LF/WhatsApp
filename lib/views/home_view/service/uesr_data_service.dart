@@ -18,4 +18,6 @@ class UserDataService {
           'Failed to load weather data: ${response.statusCode} ${response.reasonPhrase}');
     }
   }
+
+  getPostData(contex) {}
 }

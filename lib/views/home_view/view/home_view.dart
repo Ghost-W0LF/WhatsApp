@@ -15,7 +15,6 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final TokenStorage tokenStorage = TokenStorage();
 
-    Future<dynamic> tkn = tokenStorage.readToken();
     return DefaultTabController(
         length: 4,
         initialIndex: 1,
@@ -30,7 +29,7 @@ class HomeView extends StatelessWidget {
             actions: [
               IconButton(
                   onPressed: () {
-                    debugPrint("The Token Saved is${tkn}");
+                 
                   },
                   icon:
                       /*  tkn == null ?const Icon(Icons.search) : */ const Icon(
