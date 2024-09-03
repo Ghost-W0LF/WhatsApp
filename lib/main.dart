@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/views/detailed_chat/model/detail_chat_model.dart';
+import 'package:whats_app_ui/views/detailed_chat/model/detail_chat_provider.dart';
 import 'package:whats_app_ui/views/home_view/model/user_data_provider.dart.dart';
 import 'package:whats_app_ui/views/login_view/services/toeken_storage.dart';
 import 'package:whats_app_ui/views/login_view/view/login_view.dart';
@@ -20,7 +20,7 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => DetailChatModel()),
+        ChangeNotifierProvider(create: (context) => DetailChatProvider()),
         ChangeNotifierProvider(create: (context) => UserDataProvider()),
       ],
       child: const MyApp(),

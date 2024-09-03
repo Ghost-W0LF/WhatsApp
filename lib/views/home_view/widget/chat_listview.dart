@@ -14,10 +14,10 @@ class ChatListView extends StatelessWidget {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       //passing in the function (a callback) we wan to execute after the current frame finish rendering
-      //
-/*       Provider.of<UserDataProvider>(context, listen: false)
-          .getPostData(context); */
-      context.read<UserDataProvider>().getPostData(context);
+
+      Provider.of<UserDataProvider>(context, listen: false)
+          .getPostData(context);
+      /*  context.read<UserDataProvider>().getPostData(context); */
     });
     return Consumer<UserDataProvider>(
       builder: (context, userData, child) {
