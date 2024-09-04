@@ -40,7 +40,7 @@ class HomeView extends StatelessWidget {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const LoginView()),
+                          builder: (context) =>  LoginView()),
                     );
                   },
                   icon: const Icon(Icons.logout))

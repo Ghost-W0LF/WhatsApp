@@ -1,6 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class TokenStorage {
+class TokenStorage extends ChangeNotifier {
+  bool isLoggedIn=false;
   final tokenStorage = const FlutterSecureStorage();
 
   Future<void> writeToken(String token) async {
@@ -14,4 +16,7 @@ class TokenStorage {
   deletToken(String key) async {
     await tokenStorage.delete(key: key);
   }
+
+
+
 }

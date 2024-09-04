@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/views/contact/view/contact.dart';
 import 'package:whats_app_ui/views/detailed_chat/model/detail_chat_provider.dart';
 import 'package:whats_app_ui/views/home_view/model/user_data_provider.dart.dart';
-import 'package:whats_app_ui/views/home_view/view/home_view.dart';
 import 'package:whats_app_ui/views/login_view/services/toeken_storage.dart';
 import 'package:whats_app_ui/views/login_view/view/login_view.dart';
 import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
@@ -41,7 +39,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      home: const LoginView(),
+      home: LoginView(),
     );
   }
 }
