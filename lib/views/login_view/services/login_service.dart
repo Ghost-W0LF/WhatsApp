@@ -1,43 +1,45 @@
 import 'dart:convert';
-
+import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-
-import 'package:http/http.dart' as http;
-
 import 'package:whats_app_ui/utils/constants/t_url.dart';
+import 'package:whats_app_ui/views/login_view/services/auth_interceptor.dart';
 import 'package:whats_app_ui/views/login_view/services/toeken_storage.dart';
 
 class LoginService {
   final TokenStorage tokenStorage = TokenStorage();
+  final dio = Dio();
 
-  Future<String?> login(String email, String password) async {
+  LoginService() {
+    // Add AuthInterceptor to Dio
+    dio.interceptors.add(AuthInterceptor());
+  }
+
+  Future<String?> loginAuth(String email, String password) async {
     try {
-      final response = await http.post(Uri.parse(TUrl.loginUrl), body: {
-        'username': email,
-        'password': password,
+      Response response;
+
+      response = await dio.post(TUrl.loginUrl,
+          data: jsonEncode({'username': email, 'password': password}));
+      Options(headers: {
+        HttpHeaders.contentTypeHeader: 'application/json',
       });
+
       if (response.statusCode == 200) {
-        var data = jsonDecode(response.body.toString());
-        // String token = data['token'];
-        tokenStorage.writeToken(data['token']);
+        String token = response.data['token'];
+        debugPrint('The token is $token');
 
-        
-        // Check if token is saved
-        String? savedToken = await tokenStorage.readToken();
-        if (savedToken != null) {
-          debugPrint('Token saved successfully: $savedToken');
-        } else {
-          debugPrint('Failed to save token.');
-        }
+        debugPrint("The token is ${response.headers}");
 
-        return data['token'];
+        tokenStorage.writeToken(token);
+
+        return token;
       } else {
-        debugPrint(
-            'Login failed: ${response.statusCode} ${response.reasonPhrase}');
+        debugPrint('Login failed: ${response.statusCode}');
         return null;
       }
     } catch (e) {
-      debugPrint(e.toString());
+      debugPrint("The error is: $e");
     }
     return null;
   }

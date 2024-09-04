@@ -36,7 +36,7 @@ class _LoginpageState extends State<LoginView> {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
 
-    String? token = await _loginService.login(email, password);
+    String? token = await _loginService.loginAuth(email, password);
 
     if (!mounted) return null;
     String tkn = '$token';
