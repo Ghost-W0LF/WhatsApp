@@ -9,7 +9,7 @@ class AuthInterceptor extends InterceptorsWrapper {
   Future onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
     options.headers['Authorization'] = 'Bearer ${tokenStorage.readToken()}';
-    return handler.next(options); // Continue with the modified options
+    return handler.next(options);
   }
 
   @override
@@ -21,7 +21,6 @@ class AuthInterceptor extends InterceptorsWrapper {
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response != null) {
-      // Server-side error
       if (err.response!.statusCode == 400) {
         debugPrint('Unauthorized access - maybe need to re-authenticate');
       }
