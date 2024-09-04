@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/utils/constants/t_url.dart';
 import 'package:whats_app_ui/views/login_view/services/toeken_storage.dart';
 
 class AuthInterceptor extends InterceptorsWrapper {
@@ -8,7 +9,17 @@ class AuthInterceptor extends InterceptorsWrapper {
   @override
   Future onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    options.headers['Authorization'] = 'Bearer ${tokenStorage.readToken()}';
+    final savedToken = await tokenStorage.readToken();
+    final List<String> tokenRequired = ['/login/', TUrl.dataUrl];
+
+    if (tokenRequired.contains(options.path) ||
+        tokenRequired.contains(options.uri.toString())) {
+      if (savedToken != null) {
+        options.headers['Authorization'] = 'Bearer $savedToken';
+        debugPrint("Token Sent to the site");
+      }
+    }
+
     return handler.next(options);
   }
 
