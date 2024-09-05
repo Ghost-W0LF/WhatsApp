@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/utils/validator/text_form_validator.dart';
 import 'package:whats_app_ui/views/detailed_chat/model/detail_chat_provider.dart';
 import 'package:whats_app_ui/views/home_view/model/user_data_provider.dart.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
-import 'package:whats_app_ui/views/home_view/view/home_view.dart';
 import 'package:whats_app_ui/views/login_view/view/login_view.dart';
 import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +16,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => DetailChatProvider()),
         ChangeNotifierProvider(create: (context) => UserDataProvider()),
         ChangeNotifierProvider(create: (context) => TokenStorage()),
+        ChangeNotifierProvider(create: (context) => TextFormValidators()),
       ],
       child: MyApp(),
     ),

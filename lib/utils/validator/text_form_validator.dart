@@ -1,4 +1,6 @@
-class TextFormValidators {
+import 'package:flutter/material.dart';
+
+class TextFormValidators extends ChangeNotifier{
   // Email validator
   String? emailValidators(value) {
     if (value == null || value.isEmpty) {
@@ -28,5 +30,10 @@ class TextFormValidators {
     }
 
     return null;
+  }
+
+  @override
+  void notifyListeners() {
+    super.notifyListeners();
   }
 }

@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_footer.dart';
 import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_form.dart';
 import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_hedder.dart';
 import 'package:whats_app_ui/views/login_view/view_model/check_token.dart';
 import 'package:whats_app_ui/views/login_view/view_model/user_login_function.dart';
-import 'package:whats_app_ui/views/signup_view/view/signup_view.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
-
 import 'package:whats_app_ui/utils/constants/t_text.dart';
-
 
 class LoginView extends StatelessWidget {
   LoginView({super.key});
@@ -36,6 +34,7 @@ class LoginView extends StatelessWidget {
           //Login headder
           //Logo,Title text,Subtitle TExt
           const LoginHedder(),
+
           const SizedBox(height: 30),
 
           //
@@ -51,46 +50,18 @@ class LoginView extends StatelessWidget {
             //
             //on pressed method
             onPressed: () {
-              if (_loginFormKey.currentState!.validate()) {
-                loginViewModel.requestLogin(
-                  mounted,
-                  context,
-                );
-
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Processing Data'),
-                    duration: Duration(milliseconds: 500),
-                  ),
-                );
-              } else {
-                debugPrint("error");
-              }
+              loginViewModel.requestLogin(mounted, context, _loginFormKey);
             },
           ),
           //
           //Divider
           const SizedBox(height: 30),
           const CustDivider(),
-          //Text
+          //
+
+          //Footer
           const SizedBox(height: 20),
-          Row(
-            children: [
-              const Text(Ttext.dontHaveAccount),
-              //
-              //Signup Button
-              CustButton(
-                text: Ttext.signup,
-                isTextButton: true,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => SignupView()),
-                  );
-                },
-              ),
-            ],
-          )
+          const LoginFooter()
         ]),
       ),
     );
