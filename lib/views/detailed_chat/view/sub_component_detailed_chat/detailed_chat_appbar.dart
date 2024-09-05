@@ -14,7 +14,7 @@ class DetailedChatAppBar extends StatelessWidget
 
   final UserDataProvider userData;
   final int index;
-  NavigationService service = NavigationService();
+ final NavigationService service = NavigationService();
 
   @override
   Widget build(BuildContext context) {

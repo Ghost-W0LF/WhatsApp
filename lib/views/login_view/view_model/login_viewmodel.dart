@@ -27,8 +27,9 @@ class LoginViewModel extends ChangeNotifier {
       if (loginFormKey.currentState!.validate()) {
         if (token != null) {
           //
+          service.replaceTo('/homeView');
+          passwordController.clear();
           //
-          service.replaceTo('/loginView');
 
           debugPrint('Login successful, token: $token');
         }

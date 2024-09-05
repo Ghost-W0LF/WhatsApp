@@ -9,7 +9,7 @@ import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:whats_app_ui/views/login_view/view_model/login_viewmodel.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(

@@ -8,10 +8,6 @@ class NavigationService {
         ?.restorablePushReplacementNamed(route, arguments: arguments);
   }
 
-  dynamic routTo(String route, {dynamic arguments}) {
-    return navigatorKey.currentState?.pushNamed(route, arguments: arguments);
-  }
-
   dynamic goBack() {
     return navigatorKey.currentState?.pop();
   }
