@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_footer.dart';
 import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_form.dart';
 import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_hedder.dart';
 import 'package:whats_app_ui/views/login_view/view_model/check_token.dart';
-import 'package:whats_app_ui/views/login_view/view_model/user_login_function.dart';
+import 'package:whats_app_ui/views/login_view/view_model/login_viewmodel.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
 
 class LoginView extends StatelessWidget {
-  LoginView({super.key});
-  //
-  //global key
-  final _loginFormKey = GlobalKey<FormState>();
+  const LoginView({super.key});
 
   bool get mounted {
     return true;
   }
-
-  final LoginViewModel loginViewModel = LoginViewModel();
 
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       CheckToken().checkToken(context);
     });
+    final loginViewModel = Provider.of<LoginViewModel>(context);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -40,7 +37,8 @@ class LoginView extends StatelessWidget {
           //
           //Login Form
           LoginForm(
-              loginFormKey: _loginFormKey, loginViewModel: loginViewModel),
+              loginFormKey: loginViewModel.loginFormKey,
+              loginViewModel: loginViewModel),
           //
           //Login button
           const SizedBox(height: 30),
@@ -50,7 +48,10 @@ class LoginView extends StatelessWidget {
             //
             //on pressed method
             onPressed: () {
-              loginViewModel.requestLogin(mounted, context, _loginFormKey);
+              loginViewModel.requestLogin(
+                mounted,
+                context,
+              );
             },
           ),
           //

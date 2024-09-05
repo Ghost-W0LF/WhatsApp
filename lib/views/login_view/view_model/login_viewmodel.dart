@@ -3,14 +3,16 @@ import 'package:whats_app_ui/views/home_view/view/home_view.dart';
 import 'package:whats_app_ui/views/login_view/view_model/services/login_service.dart';
 
 class LoginViewModel extends ChangeNotifier {
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+     final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
   //login function to login
   void requestLogin(
     bool mounted,
     BuildContext context,
-    GlobalKey<FormState> key,
+   
   ) async {
     final LoginService loginService = LoginService();
 
@@ -20,7 +22,7 @@ class LoginViewModel extends ChangeNotifier {
     String? token = await loginService.loginAuth(email, password);
 
     if (mounted) {
-      if (key.currentState!.validate()) {
+      if (loginFormKey.currentState!.validate()) {
         if (token != null) {
           //
           //
