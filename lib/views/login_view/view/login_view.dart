@@ -19,7 +19,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      CheckToken().checkToken(context);
+      CheckToken().checkToken();
     });
     final loginViewModel = Provider.of<LoginViewModel>(context);
 

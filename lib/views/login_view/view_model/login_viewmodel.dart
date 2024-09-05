@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/views/home_view/view/home_view.dart';
+
 import 'package:whats_app_ui/views/login_view/view_model/services/login_service.dart';
 
 class LoginViewModel extends ChangeNotifier {
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-     final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  //navigation
+  NavigationService service = NavigationService();
 
   //login function to login
   void requestLogin(
     bool mounted,
     BuildContext context,
-   
   ) async {
     final LoginService loginService = LoginService();
 
@@ -26,10 +28,7 @@ class LoginViewModel extends ChangeNotifier {
         if (token != null) {
           //
           //
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const HomeView()),
-          );
+          service.replaceTo('/loginView');
 
           debugPrint('Login successful, token: $token');
         }
