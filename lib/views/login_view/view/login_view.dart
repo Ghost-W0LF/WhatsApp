@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/views/login_view/services/check_token.dart';
-import 'package:whats_app_ui/views/login_view/services/user_login_function.dart';
+import 'package:whats_app_ui/views/login_view/view_model/user_login_function.dart';
 import 'package:whats_app_ui/views/signup_view/view/signup_view.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
@@ -10,32 +9,19 @@ import 'package:whats_app_ui/utils/constants/t_text.dart';
 import 'package:whats_app_ui/utils/validator/text_form_validator.dart';
 
 class LoginView extends StatelessWidget {
+  LoginView({super.key});
   //
   //global key
   final _loginFormKey = GlobalKey<FormState>();
-  //text TextEditingController
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
   bool get mounted {
     return true;
   }
 
-  final UserLoginFunction userLoginFunction = UserLoginFunction();
-
-   LoginView({super.key});
-
-  @override
-
-  //
-
-  //token
+  final LoginViewModel loginViewModel = LoginViewModel();
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      CheckToken().checkToken(context);
-    });
     return Scaffold(
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 90),
@@ -59,11 +45,10 @@ class LoginView extends StatelessWidget {
           //Second text
           const SizedBox(height: 10),
           SizedBox(
-              width: MediaQuery.of(context).size.width,
               child: Text(
-                Ttext.loginSubTitle,
-                style: Theme.of(context).textTheme.bodyLarge,
-              )),
+            Ttext.loginSubTitle,
+            style: Theme.of(context).textTheme.bodyLarge,
+          )),
 
           //
           //Login Form
@@ -75,7 +60,7 @@ class LoginView extends StatelessWidget {
                   //
                   //eamil
                   CustTextFormField(
-                    controller: emailController,
+                    controller: loginViewModel.emailController,
                     validator: TextFormValidators().emailValidators,
                     hintText: Ttext.email,
                     iconData: Icons.email,
@@ -85,7 +70,7 @@ class LoginView extends StatelessWidget {
                   //
                   //password
                   CustTextFormField(
-                    controller: passwordController,
+                    controller: loginViewModel.passwordController,
                     validator: TextFormValidators().passwordValidators,
                     obscureText: true,
                     hintText: Ttext.password,
@@ -103,10 +88,10 @@ class LoginView extends StatelessWidget {
             //on pressed method
             onPressed: () {
               if (_loginFormKey.currentState!.validate()) {
-                userLoginFunction.login(
-                    emailController, passwordController, mounted, context);
-                emailController.dispose();
-                passwordController.dispose();
+                loginViewModel.requestLogin(
+                  mounted,
+                  context,
+                );
 
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(

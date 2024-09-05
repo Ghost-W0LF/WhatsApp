@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/utils/constants/t_url.dart';
-import 'package:whats_app_ui/views/login_view/services/auth_interceptor.dart';
+import 'package:whats_app_ui/views/login_view/view_model/interceptor/auth_interceptor.dart';
 
 class SignupService {
   final dio = Dio();

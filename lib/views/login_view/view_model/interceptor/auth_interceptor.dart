@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/utils/constants/t_url.dart';
-import 'package:whats_app_ui/views/login_view/services/toeken_storage.dart';
+import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
 
 class AuthInterceptor extends InterceptorsWrapper {
   final TokenStorage tokenStorage = TokenStorage();
