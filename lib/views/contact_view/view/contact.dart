@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
 
-import 'package:whats_app_ui/views/home_view/view/home_widget/chat_listview.dart';
+import 'package:whats_app_ui/views/home_view/view/home_widget/user_list.dart';
 import 'package:whats_app_ui/base/widgets/cust_list_tile.dart';
 
 class ContactView extends StatelessWidget {
@@ -78,7 +78,7 @@ class ContactView extends StatelessWidget {
             ),
             //
             //Component chat view
-            const Expanded(child: ChatListView())
+            const Expanded(child: UserList())
           ],
         ),
       ),

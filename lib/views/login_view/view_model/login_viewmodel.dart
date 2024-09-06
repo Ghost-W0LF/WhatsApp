@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/base/components/snackbar_service.dart';
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
-import 'package:whats_app_ui/views/home_view/view/home_view.dart';
 
 import 'package:whats_app_ui/views/login_view/view_model/services/login_service.dart';
 
@@ -25,32 +25,27 @@ class LoginViewModel extends ChangeNotifier {
 
     if (mounted) {
       if (loginFormKey.currentState!.validate()) {
+        SnackBarService.showSnackBar(
+            content: 'Processing Data',
+            duration: const Duration(milliseconds: 400));
         if (token != null) {
           //
           service.replaceTo('/homeView');
           passwordController.clear();
-          //
 
           debugPrint('Login successful, token: $token');
         }
         if (token == null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Invalid Email or Password')),
-          );
-          //
+          SnackBarService.showSnackBar(
+              content: 'Invalid Email or Password',
+              duration: const Duration(milliseconds: 800));
+
           //
           // Show an error message
           debugPrint('Login failed: $token');
         }
         //
         //
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Processing Data'),
-            duration: Duration(milliseconds: 500),
-          ),
-        );
       }
     }
     return null;

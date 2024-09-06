@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
-import 'package:whats_app_ui/views/detailed_chat/view/detail_chat.dart';
 import 'package:whats_app_ui/views/home_view/model/user_data_provider.dart.dart';
 
-class ChatListView extends StatelessWidget {
-  const ChatListView({super.key});
+class UserList extends StatelessWidget {
+  const UserList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +16,7 @@ class ChatListView extends StatelessWidget {
       Provider.of<UserDataProvider>(context, listen: false)
           .getPostData(context);
     });
+    NavigationService service = NavigationService();
 
     return Consumer<UserDataProvider>(builder: (context, userData, child) {
       return userData.isLoading
@@ -28,20 +29,16 @@ class ChatListView extends StatelessWidget {
                   //
                   //Gesture detector
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => DetailChat(
-                                index: index,
-                              )),
+                    service.replaceTo(
+                      '/detailedChat',arguments: index
                     );
                   },
                   //
                   //Profile picture
                   leading: CircleAvatar(
-                    backgroundImage: NetworkImage(userData.data.data?[index]
-                            .avatar /* _auth?.data?[index].avatar.toString() */ ??
-                        TImage.networkImage),
+                    backgroundImage: NetworkImage(
+                        userData.data.data?[index].avatar ??
+                            TImage.networkImage),
                   ),
                   //
                   //UserName and message

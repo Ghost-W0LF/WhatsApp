@@ -14,24 +14,26 @@ class DetailedChatAppBar extends StatelessWidget
 
   final UserDataProvider userData;
   final int index;
- final NavigationService service = NavigationService();
+  final NavigationService service = NavigationService();
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.grey,
+      //back button
       leading: IconButton(
           onPressed: () {
-            NavigationService().goBack();
+            NavigationService().replaceTo('/homeView');
           },
           icon: const Icon(Icons.arrow_back_ios)),
       //
       //Title
       title: Row(
         children: [
+          //Avatar Image
           CircleAvatar(
             backgroundImage: NetworkImage(userData.data.data?[index]
-                    .avatar ?? /* _auth?.data?[widget.index].avatar */
+                    .avatar ?? 
                 TImage.networkImage),
           ),
           const SizedBox(
@@ -42,6 +44,8 @@ class DetailedChatAppBar extends StatelessWidget
             children: [
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
+                //
+                //First Name
                 child: Text(
                   "${userData.data.data?[index].firstName}",
                   style: Theme.of(context).textTheme.bodyLarge,

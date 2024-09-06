@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/base/components/snackbar_service.dart';
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/navigation/route_generator.dart';
 
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      scaffoldMessengerKey: SnackBarService.scaffoldKey,
       title: 'Flutter Demo',
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
