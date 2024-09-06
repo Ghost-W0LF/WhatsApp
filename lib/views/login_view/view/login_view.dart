@@ -49,8 +49,7 @@ class LoginView extends StatelessWidget {
             //on pressed method
             onPressed: () {
               loginViewModel.requestLogin(
-                mounted,
-                context,
+  
               );
             },
           ),

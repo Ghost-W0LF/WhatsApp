@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
-import 'package:whats_app_ui/views/home_view/model/user_data_provider.dart.dart';
+import 'package:whats_app_ui/views/home_view/model/user_data_viewmodel.dart';
 
 class UserList extends StatelessWidget {
   const UserList({super.key});
@@ -13,12 +13,12 @@ class UserList extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       //passing in the function (a callback) we wan to execute after the current frame finish rendering
 
-      Provider.of<UserDataProvider>(context, listen: false)
+      Provider.of<UserdataViewModel>(context, listen: false)
           .getPostData(context);
     });
     NavigationService service = NavigationService();
 
-    return Consumer<UserDataProvider>(builder: (context, userData, child) {
+    return Consumer<UserdataViewModel>(builder: (context, userData, child) {
       return userData.isLoading
           ? const CircularProgressIndicator()
           : ListView.builder(
