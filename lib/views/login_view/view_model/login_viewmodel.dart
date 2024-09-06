@@ -4,7 +4,6 @@ import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
 import 'package:whats_app_ui/views/login_view/repository/login_repository.dart';
 
-
 class LoginViewModel extends ChangeNotifier {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -31,18 +30,18 @@ class LoginViewModel extends ChangeNotifier {
           content: 'Processing Data',
           duration: const Duration(milliseconds: 400));
       if (token != null) {
-        service.replaceTo('/homeView');
         passwordController.clear();
 
         debugPrint('Login successful, token: $token');
       }
       if (token == null) {
-        SnackBarService.showSnackBar(
-            content: 'Invalid Email or Password',
-            duration: const Duration(milliseconds: 800));
         //
         // Show an error message
         debugPrint('Login failed: $token');
+      } else {
+        SnackBarService.showSnackBar(
+            content: 'Invalid Email or Password',
+            duration: const Duration(milliseconds: 800));
       }
     }
     return null;

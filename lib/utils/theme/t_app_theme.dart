@@ -12,7 +12,7 @@ class TAppTheme {
     textTheme: TTextTheme.lightTextTheme,
     dividerColor: Tcolors.darkerGrey,
     appBarTheme: AppBarTheme(backgroundColor: Tcolors.whatsAppGreen),
-    fontFamily: 'Roboto',
+
   );
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
 import 'package:whats_app_ui/views/signup_view/view/signup_view.dart';
+
 class LoginFooter extends StatelessWidget {
   const LoginFooter({
     super.key,
@@ -11,7 +12,10 @@ class LoginFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text(Ttext.dontHaveAccount),
+        Text(
+          Ttext.dontHaveAccount,
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
         //
         //Signup Button
         CustButton(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
-import 'package:whats_app_ui/views/contact_view/view/contact.dart';
+
 
 class FloatingButton extends StatelessWidget {
   const FloatingButton({
@@ -17,10 +18,7 @@ class FloatingButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(50)),
       child: IconButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ContactView()),
-          );
+          NavigationService().replaceTo('/contactView');
         },
         icon: const Icon(Icons.message_rounded),
         color: Colors.white,

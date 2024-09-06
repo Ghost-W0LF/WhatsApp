@@ -29,7 +29,7 @@ class UserList extends StatelessWidget {
                   //
                   //Gesture detector
                   onTap: () {
-                    service.replaceTo('/detailedChat', arguments: index);
+                    service.replaceTo('/detailedChat');
                   },
                   //
                   //Profile picture
