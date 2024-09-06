@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 
+/// A custom `TextFormField` widget for the creation of text input fields.
+///
+///Creates a [FormField] that contains a [TextField],[HintText],[prefixIcon],[validator],[controller].
+///BorderRadius is set defautl to [10].
+///[obscureText]is false by default
+
+
 class CustTextFormField extends StatelessWidget {
   const CustTextFormField({
     super.key,
-    required this.controller,
     this.hintText,
+    this.validator,
     this.iconData,
     this.obscureText = false,
-    this.validator,
+    required this.controller,
   });
 
   final TextEditingController controller;
@@ -20,7 +27,7 @@ class CustTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      validator:validator,
+      validator: validator,
       obscureText: obscureText,
       decoration: InputDecoration(
           prefixIcon: Icon(iconData),

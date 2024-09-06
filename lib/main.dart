@@ -4,7 +4,7 @@ import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/navigation/route_generator.dart';
 
 import 'package:whats_app_ui/views/detailed_chat/detailed_chat_viewmodel/detail_chat_provider.dart';
-import 'package:whats_app_ui/views/home_view/model/user_data_viewmodel.dart';
+import 'package:whats_app_ui/views/home_view/home_view_model/user_data_viewmodel.dart';
 
 import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +17,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => DetailChatProvider()),
-        ChangeNotifierProvider(create: (context) => UserdataViewModel()),
+        ChangeNotifierProvider(create: (context) => UserDataViewModel()),
         ChangeNotifierProvider(create: (context) => LoginViewModel()),
       ],
       child: const MyApp(),

@@ -4,8 +4,10 @@ import 'package:whats_app_ui/views/home_view/model/user_data_model.dart';
 import 'package:whats_app_ui/views/home_view/repositort/user_repository.dart';
 
 
-class UserdataViewModel extends ChangeNotifier {
-  UserData uData = UserData(data: []);
+class UserDataViewModel extends ChangeNotifier {
+  UserData uData = UserData(data: [
+    
+  ]);
 
   final userRepository = UserRepository();
   bool isLoading = false;

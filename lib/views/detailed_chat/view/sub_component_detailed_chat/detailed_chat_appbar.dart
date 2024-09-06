@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
-import 'package:whats_app_ui/views/home_view/model/user_data_viewmodel.dart';
+import 'package:whats_app_ui/views/home_view/home_view_model/user_data_viewmodel.dart';
 
 class DetailedChatAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -12,7 +12,7 @@ class DetailedChatAppBar extends StatelessWidget
     required this.index,
   });
 
-  final UserdataViewModel userData;
+  final UserDataViewModel userData;
   final int index;
   final NavigationService service = NavigationService();
 

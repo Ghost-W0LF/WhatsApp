@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/views/home_view/home_view_model/service/user_data_service.dart';
+import 'package:whats_app_ui/views/home_view/home_view_model/service/uesr_data_service.dart';
 import 'package:whats_app_ui/views/home_view/model/user_data_model.dart';
 
 class UserRepository {

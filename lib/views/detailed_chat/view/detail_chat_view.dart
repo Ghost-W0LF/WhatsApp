@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:whats_app_ui/views/detailed_chat/detailed_chat_viewmodel/detail_chat_provider.dart';
 import 'package:whats_app_ui/views/detailed_chat/view/sub_component_detailed_chat/buttom_textfield.dart';
 import 'package:whats_app_ui/views/detailed_chat/view/sub_component_detailed_chat/detailed_chat_appbar.dart';
-import 'package:whats_app_ui/views/home_view/model/user_data_viewmodel.dart';
+import 'package:whats_app_ui/views/home_view/home_view_model/user_data_viewmodel.dart';
+
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
 
 class DetailChatView extends StatelessWidget {
@@ -16,13 +17,13 @@ class DetailChatView extends StatelessWidget {
 
     //
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      Provider.of<UserdataViewModel>(context, listen: false)
+      Provider.of<UserDataViewModel>(context, listen: false)
           .getPostData(context);
     });
 
     return Consumer<DetailChatProvider>(
       builder: (context, ins, child) {
-        final userData = context.read<UserdataViewModel>();
+        final userData = context.read<UserDataViewModel>();
         return Scaffold(
           //
           //AppBar

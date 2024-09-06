@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
 
+///Creates a list tile.
+///
+///Returns Containers of shape circle for Image and a Text widget for the title and subtitle.
+///The title and subtitle are wrapped in a Row widget.
+///
+///[title] is the title of the list tile.
+///
 class CustListTile extends StatelessWidget {
   const CustListTile(
       {super.key,
@@ -18,10 +25,7 @@ class CustListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Container(
-          height: 35,
-          width: 35,
-          decoration: BoxDecoration(
-            color: Tcolors.whatsAppGreen,
+          decoration:const BoxDecoration(
             shape: BoxShape.circle,
           ),
           child: Center(
