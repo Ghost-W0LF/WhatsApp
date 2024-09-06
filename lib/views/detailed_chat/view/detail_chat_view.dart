@@ -26,8 +26,7 @@ class DetailChatView extends StatelessWidget {
         return Scaffold(
           //
           //AppBar
-          appBar: DetailedChatAppBar(userData: userData, index: index ?? 0
-          ),
+          appBar: DetailedChatAppBar(userData: userData, index: index ?? 0),
           //
           //body
           body: Stack(children: [

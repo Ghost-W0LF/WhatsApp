@@ -32,9 +32,8 @@ class DetailedChatAppBar extends StatelessWidget
         children: [
           //Avatar Image
           CircleAvatar(
-            backgroundImage: NetworkImage(userData.data.data?[index]
-                    .avatar ?? 
-                TImage.networkImage),
+            backgroundImage: NetworkImage(
+                userData.uData.data?[index].avatar ?? TImage.networkImage),
           ),
           const SizedBox(
             width: 5,
@@ -47,7 +46,7 @@ class DetailedChatAppBar extends StatelessWidget
                 //
                 //First Name
                 child: Text(
-                  "${userData.data.data?[index].firstName}",
+                  "${userData.uData.data?[index].firstName}",
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ),

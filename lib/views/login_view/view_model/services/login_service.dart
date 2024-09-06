@@ -1,20 +1,13 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/base/networking/dio_instance.dart';
 import 'package:whats_app_ui/utils/constants/t_url.dart';
-import 'package:whats_app_ui/views/login_view/view_model/interceptor/auth_interceptor.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
 
 class LoginService {
   final TokenStorage tokenStorage = TokenStorage();
-  final dio = Dio();
-
-  LoginService() {
-    // Add AuthInterceptor to Dio
-    dio.interceptors.add(AuthInterceptor());
-    // dio.interceptors.add(LogInterceptor());
-  }
-
+  final dio = DioInstance().dio;
   Future<String?> loginAuth(String email, String password) async {
     try {
       Response response;

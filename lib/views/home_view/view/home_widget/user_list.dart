@@ -22,28 +22,26 @@ class UserList extends StatelessWidget {
       return userData.isLoading
           ? const CircularProgressIndicator()
           : ListView.builder(
-              itemCount: userData.data.data?.length,
+              itemCount: userData.uData.data?.length,
               itemBuilder: (_, index) {
                 return ListTile(
                   //
                   //
                   //Gesture detector
                   onTap: () {
-                    service.replaceTo(
-                      '/detailedChat',arguments: index
-                    );
+                    service.replaceTo('/detailedChat', arguments: index);
                   },
                   //
                   //Profile picture
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(
-                        userData.data.data?[index].avatar ??
+                        userData.uData.data?[index].avatar ??
                             TImage.networkImage),
                   ),
                   //
                   //UserName and message
                   title: Text(
-                    userData.data.data?[index].email ?? "no data",
+                    userData.uData.data?[index].email ?? "no data",
                     style: Theme.of(context).textTheme.headlineSmall,
                     overflow: TextOverflow.ellipsis,
                   ),

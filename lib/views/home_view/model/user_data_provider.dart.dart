@@ -1,19 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/views/home_view/model/user_data_model.dart';
-import 'package:whats_app_ui/views/home_view/home_view_model/service/uesr_data_service.dart';
+
+import 'package:whats_app_ui/views/home_view/repositort/user_repository.dart';
+
 
 class UserDataProvider extends ChangeNotifier {
-  UserData data = UserData(data: []);
+  UserData uData = UserData(data: []);
 
-  final userDataService = UserDataService();
+  final userRepository = UserRepository();
   bool isLoading = false;
 
   Future<void> getPostData(BuildContext context) async {
     isLoading = true;
+    notifyListeners();
+
     try {
-      data = await userDataService.fetchUser();
+      final featchedData = await userRepository.getUserData();
+      if (featchedData != null) {
+        uData = featchedData;
+      } else {
+        debugPrint('Failed to fetch data or data is null');
+      }
     } catch (e) {
-      debugPrint('Error is $e');
+      debugPrint('this is the $e');
     } finally {
       isLoading = false;
       notifyListeners();
