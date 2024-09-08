@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/base/components/snackbar_service.dart';
+import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
 import 'package:whats_app_ui/views/login_view/repository/login_repository.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/base/components/snackbar_service.dart';
+import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/navigation/route_generator.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
@@ -10,6 +10,7 @@ import 'package:whats_app_ui/views/home_view/home_view_model/user_data_viewmodel
 import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:whats_app_ui/views/login_view/view_model/login_viewmodel.dart';
+import 'package:whats_app_ui/views/signup_view/signup_view_model/signup_viewmodel.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +21,7 @@ void main() {
         ChangeNotifierProvider(create: (context) => DetailChatProvider()),
         ChangeNotifierProvider(create: (context) => UserDataViewModel()),
         ChangeNotifierProvider(create: (context) => LoginViewModel()),
+        ChangeNotifierProvider(create: (context) => SignupViewmodel()),
       ],
       child: const MyApp(),
     ),
