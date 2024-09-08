@@ -5,6 +5,7 @@ import 'package:whats_app_ui/views/signup_view/services/signup_service.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
 import 'package:whats_app_ui/base/widgets/cust_text_formfield.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
+import 'package:whats_app_ui/views/signup_view/view/sub_component_signup/signup_form.dart';
 
 
 class SignupView extends StatelessWidget {
@@ -38,57 +39,7 @@ class SignupView extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Form(
-                key: _signUpKey,
-                child: Column(
-                  children: [
-                    //
-                    //First and last name
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          //user name
-                          child: CustTextFormField(
-                            controller: nameController,
-                            validator:TextFormValidators().userNameValidators,
-                            hintText: Ttext.firstName,
-                            iconData: Icons.person,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    //
-                    //email
-                    CustTextFormField(
-                      controller: emailComtroller,
-                      validator:TextFormValidators().emailValidators,
-                      hintText: Ttext.email,
-                      iconData: Icons.email,
-                    ),
-                    const SizedBox(
-                      height: 50,
-                    ),
-                    //
-                    //password
-                    CustTextFormField(
-                      controller: passwordController,
-                      validator:TextFormValidators().passwordValidators,
-                      hintText: Ttext.password,
-                      iconData: Icons.email,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-
-                    const SizedBox(
-                      height: 40,
-                    ),
-                  ],
-                )),
+            SignupForm(signUpKey: _signUpKey, nameController: nameController, emailComtroller: emailComtroller, passwordController: passwordController),
             //
             //Signup button
             CustButton(
@@ -103,11 +54,7 @@ class SignupView extends StatelessWidget {
                 } else {
                   debugPrint("error");
                 }
-              }, /* {
-
-                register.registerUser(emailComtroller.text, nameController.text,
-                    passwordController.text);
-              }, */
+              }, 
             )
           ],
         ),

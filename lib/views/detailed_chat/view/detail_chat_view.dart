@@ -13,7 +13,8 @@ class DetailChatView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController messageController = TextEditingController();
+    //calling ViewModel of DetailChatProvider
+    final detailChatProvider = Provider.of<DetailChatProvider>(context);
 
     //
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -58,7 +59,8 @@ class DetailChatView extends StatelessWidget {
 
             //
             //bottom text field
-            ButtomTextField(messageController: messageController)
+            ButtomTextField(
+                messageController: detailChatProvider.messageController)
           ]),
         );
       },

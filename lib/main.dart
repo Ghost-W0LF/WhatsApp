@@ -30,11 +30,12 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-MyAppState createState() => MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
 class MyAppState extends State<MyApp> {
   bool isLogedin = false;
+  bool isLoading = true;
 
   final TokenStorage tokenStorage = TokenStorage();
 
@@ -42,6 +43,7 @@ class MyAppState extends State<MyApp> {
     String? savedToken = await tokenStorage.readToken();
     setState(() {
       isLogedin = savedToken != null;
+      isLoading = false;
     });
   }
 
@@ -53,6 +55,11 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    if (isLoading == true) {
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    }
     return MaterialApp(
       scaffoldMessengerKey: SnackBarService.scaffoldKey,
       title: 'Flutter Demo',
