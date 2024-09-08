@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+///Creat a custom divider With a Text in between
+///
+///
+///Thickness is set to 2
+
 class CustDivider extends StatelessWidget {
   const CustDivider({
     super.key,

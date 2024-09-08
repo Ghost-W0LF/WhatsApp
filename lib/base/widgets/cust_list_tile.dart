@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-
 ///Creates a list tile.
 ///
-///Returns Containers of shape circle for Image and a Text widget for the title and subtitle.
+///Returns Containers of shape circle for Image and a Text widget for the [title] and subtitle.
 ///The title and subtitle are wrapped in a Row widget.
-///
+///[leading] is a bool set false to hide by default
 ///[title] is the title of the list tile.
+///[leadingIcon] to set the leading icon
 ///
 class CustListTile extends StatelessWidget {
   const CustListTile(
@@ -25,7 +25,7 @@ class CustListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Container(
-          decoration:const BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
           ),
           child: Center(
