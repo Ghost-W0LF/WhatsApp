@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
-import 'package:whats_app_ui/views/login_view/repository/login_repository.dart';
+import 'package:whats_app_ui/views/login_view/repository/login_repository_implement.dart';
 
 class LoginViewModel extends ChangeNotifier {
   final TextEditingController emailController = TextEditingController();
@@ -10,7 +10,7 @@ class LoginViewModel extends ChangeNotifier {
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   //navigation
   NavigationService service = NavigationService();
-  LoginRepository loginRepo = LoginRepository();
+  LoginRepositoryImplement loginRepo = LoginRepositoryImplement();
 
   //login function to login
   void requestLogin() async {

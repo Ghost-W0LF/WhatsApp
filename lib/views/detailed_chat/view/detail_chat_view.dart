@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:whats_app_ui/views/detailed_chat/detailed_chat_viewmodel/detail_chat_provider.dart';
-import 'package:whats_app_ui/views/detailed_chat/view/sub_component_detailed_chat/buttom_textfield.dart';
-import 'package:whats_app_ui/views/detailed_chat/view/sub_component_detailed_chat/detailed_chat_appbar.dart';
+import 'package:whats_app_ui/views/detailed_chat/widget/buttom_textfield.dart';
+import 'package:whats_app_ui/views/detailed_chat/widget/detailed_chat_appbar.dart';
 import 'package:whats_app_ui/views/home_view/home_view_model/user_data_viewmodel.dart';
 
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
