@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_footer.dart';
-import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_form.dart';
-import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_hedder.dart';
+import 'package:whats_app_ui/views/login_view/widgets/login_footer.dart';
+import 'package:whats_app_ui/views/login_view/widgets/login_form.dart';
+import 'package:whats_app_ui/views/login_view/widgets/login_headder.dart';
 
 import 'package:whats_app_ui/views/login_view/view_model/login_viewmodel.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
@@ -18,7 +18,6 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     final loginViewModel = Provider.of<LoginViewModel>(context);
 
     return Scaffold(
@@ -28,9 +27,10 @@ class LoginView extends StatelessWidget {
           //
           //Login headder
           //Logo,Title text,Subtitle TExt
-          const LoginHedder(),
+          const LoginHeadder(),
 
           const SizedBox(height: 30),
+          
 
           //
           //Login Form

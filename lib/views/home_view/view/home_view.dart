@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/views/home_view/view/home_widget/user_list.dart';
+import 'package:whats_app_ui/views/home_view/widget/user_list.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
-import 'package:whats_app_ui/views/home_view/view/home_widget/floating_action_button.dart';
-import 'package:whats_app_ui/views/home_view/view/home_widget/home_app_bar.dart';
+import 'package:whats_app_ui/views/home_view/widget/floating_action_button.dart';
+import 'package:whats_app_ui/views/home_view/widget/home_app_bar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

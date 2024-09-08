@@ -5,7 +5,7 @@ import 'package:whats_app_ui/base/widgets/cust_button.dart';
 
 import 'package:whats_app_ui/utils/constants/t_text.dart';
 import 'package:whats_app_ui/views/signup_view/signup_view_model/signup_viewmodel.dart';
-import 'package:whats_app_ui/views/signup_view/view/sub_component_signup/signup_form.dart';
+import 'package:whats_app_ui/views/signup_view/widgets/signup_form.dart';
 
 class SignupView extends StatelessWidget {
   const SignupView({super.key});

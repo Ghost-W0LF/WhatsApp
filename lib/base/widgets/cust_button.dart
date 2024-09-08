@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/utils/constants/t_colors.dart';
+/// Creates Text or Eleveted button
 
 class CustButton extends StatelessWidget {
-  ///creates a button
+  /// creates a button
   ///
-  ///Takes the parameters [onPressed],[text],[isTextButton]
-  ///if bool [isTextButton] is set true will return textbutton
-  ///else will return elevated button
-  ///By defult [isTextButton] is false
-  ///Color is Set to Tcolors.whatsAppGreen
+  /// Takes the parameters [onPressed],[text],[isTextButton]
+  /// if bool [isTextButton] is set true will return textbutton
+  /// else will return elevated button
+  /// By defult [isTextButton] is false
+  /// Color is Set to Tcolors.whatsAppGreen
   const CustButton({
     super.key,
     this.onPressed,

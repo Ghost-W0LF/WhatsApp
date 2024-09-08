@@ -4,7 +4,7 @@ import 'package:whats_app_ui/utils/constants/t_url.dart';
 
 class UserDataService {
       final dio = DioInstance().dio;
-   Future<Response> apiCall() async {
+   Future<Response> postUser() async {
     try {
       return await dio.get(TUrl.dataUrl);
     } on DioException catch (e) {

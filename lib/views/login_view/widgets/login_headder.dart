@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/utils/constants/assets/t_image.dart';
 import 'package:whats_app_ui/utils/constants/t_text.dart';
 
-class LoginHedder extends StatelessWidget {
-  const LoginHedder({
+class LoginHeadder extends StatelessWidget {
+  const LoginHeadder({
     super.key,
   });
 
