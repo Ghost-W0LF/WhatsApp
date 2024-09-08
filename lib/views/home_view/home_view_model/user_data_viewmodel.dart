@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/views/home_view/model/user_data_model.dart';
+import 'package:whats_app_ui/views/home_view/repositort/user_repositort_implements.dart';
 
 import 'package:whats_app_ui/views/home_view/repositort/user_repository.dart';
+
+
 
 
 class UserDataViewModel extends ChangeNotifier {
@@ -9,7 +12,7 @@ class UserDataViewModel extends ChangeNotifier {
     
   ]);
 
-  final userRepository = UserRepository();
+  final userRepository = UserRepositortImplements();
   bool isLoading = false;
 
   Future<void> getPostData(BuildContext context) async {
