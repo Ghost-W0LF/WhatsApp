@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:whats_app_ui/views/detailed_chat/detailed_chat_viewmodel/detail_chat_provider.dart';
+import 'package:whats_app_ui/views/detailed_chat/detailed_chat_viewmodel/detail_chat_view_model.dart';
 import 'package:whats_app_ui/views/detailed_chat/widget/buttom_textfield.dart';
 import 'package:whats_app_ui/views/detailed_chat/widget/detailed_chat_appbar.dart';
 import 'package:whats_app_ui/views/home_view/home_view_model/user_data_viewmodel.dart';
@@ -14,7 +14,7 @@ class DetailChatView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //calling ViewModel of DetailChatProvider
-    final detailChatProvider = Provider.of<DetailChatProvider>(context);
+    final detailChatProvider = Provider.of<DetailChatViewModel>(context);
 
     //
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -22,7 +22,7 @@ class DetailChatView extends StatelessWidget {
           .getPostData(context);
     });
 
-    return Consumer<DetailChatProvider>(
+    return Consumer<DetailChatViewModel>(
       builder: (context, ins, child) {
         final userData = context.read<UserDataViewModel>();
         return Scaffold(

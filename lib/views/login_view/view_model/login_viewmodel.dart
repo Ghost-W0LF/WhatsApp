@@ -19,7 +19,13 @@ class LoginViewModel extends ChangeNotifier {
     String password = passwordController.text.trim();
     loginRepo.loginAuth(email, password);
     //
-    //passing email and password to repo function
+    //Disposing the Controllers
+    @override
+    void dispose() {
+      emailController.dispose();
+      passwordController.dispose();
+      super.dispose();
+    }
 
 //
 //Token Storage
@@ -34,6 +40,7 @@ class LoginViewModel extends ChangeNotifier {
         passwordController.clear();
 
         debugPrint('Login successful, token: $token');
+        dispose();
       }
       if (token == null) {
         passwordController.clear();

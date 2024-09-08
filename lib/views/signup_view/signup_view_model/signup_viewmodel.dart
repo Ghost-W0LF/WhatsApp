@@ -9,6 +9,14 @@ class SignupViewmodel extends ChangeNotifier {
   final GlobalKey<FormState> signUpKey = GlobalKey<FormState>();
 
   final register = SignupRepositoryImplements();
+  //dispose The controller
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailComtroller.dispose();
+    passwordController.dispose();
+    super.dispose();
+    }
 
   void createAccount() {
     try {
@@ -18,6 +26,7 @@ class SignupViewmodel extends ChangeNotifier {
         SnackBarService.showSnackBar(
             content: "Processing Data",
             duration: const Duration(milliseconds: 400));
+      
       }
     } catch (e) {
       debugPrint("The error is:- $e");

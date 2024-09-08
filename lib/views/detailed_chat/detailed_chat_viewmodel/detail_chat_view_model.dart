@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class DetailChatProvider extends ChangeNotifier {
+class DetailChatViewModel extends ChangeNotifier {
   TextEditingController messageController = TextEditingController();
   List<String> chats = [];
 

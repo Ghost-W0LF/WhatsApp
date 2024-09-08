@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:whats_app_ui/views/detailed_chat/detailed_chat_viewmodel/detail_chat_provider.dart';
+import 'package:whats_app_ui/views/detailed_chat/detailed_chat_viewmodel/detail_chat_view_model.dart';
 class ButtomTextField extends StatelessWidget {
   const ButtomTextField({
     super.key,
@@ -33,7 +33,7 @@ class ButtomTextField extends StatelessWidget {
                   IconButton(
                       onPressed: () {
                         context
-                            .read<DetailChatProvider>()
+                            .read<DetailChatViewModel>()
                             .updateChat(messageController);
     
                         messageController.clear();
