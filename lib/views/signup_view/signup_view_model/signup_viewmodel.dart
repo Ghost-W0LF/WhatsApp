@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
-
-import 'package:whats_app_ui/views/signup_view/signup_repository/signup_repository.dart';
+import 'package:whats_app_ui/views/signup_view/signup_repository/signup_repository_implements.dart';
 
 class SignupViewmodel extends ChangeNotifier {
   final TextEditingController nameController = TextEditingController();
@@ -9,7 +8,7 @@ class SignupViewmodel extends ChangeNotifier {
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> signUpKey = GlobalKey<FormState>();
 
-  final register = SignupRepository();
+  final register = SignupRepositoryImplements();
 
   void createAccount() {
     try {
