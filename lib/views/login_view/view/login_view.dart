@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_footer.dart';
 import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_form.dart';
 import 'package:whats_app_ui/views/login_view/view/sub_widgets/login_hedder.dart';
-import 'package:whats_app_ui/views/login_view/view_model/check_token.dart';
+
 import 'package:whats_app_ui/views/login_view/view_model/login_viewmodel.dart';
 import 'package:whats_app_ui/base/widgets/cust_divider.dart';
 import 'package:whats_app_ui/base/widgets/cust_button.dart';
@@ -18,9 +18,9 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    /*  WidgetsBinding.instance.addPostFrameCallback((_) {
       CheckToken().checkToken();
-    });
+    }); */
     final loginViewModel = Provider.of<LoginViewModel>(context);
 
     return Scaffold(
@@ -48,9 +48,7 @@ class LoginView extends StatelessWidget {
             //
             //on pressed method
             onPressed: () {
-              loginViewModel.requestLogin(
-  
-              );
+              loginViewModel.requestLogin();
             },
           ),
           //

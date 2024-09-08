@@ -11,16 +11,15 @@ class TokenStorage extends ChangeNotifier {
   }
 
   Future<String?> readToken() async {
-   return await tokenStorage.read(key: 'token');
-  
+    String? savedToken = await tokenStorage.read(key: 'token');
+    notifyListeners();
+    return savedToken;
   }
 
- Future<void> deletToken(String key) async {
+  Future<void> deletToken(String key) async {
     await tokenStorage.delete(key: key);
     notifyListeners();
   }
-
-
 
   @override
   void notifyListeners() {

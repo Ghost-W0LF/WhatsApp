@@ -10,16 +10,17 @@ class LoginViewModel extends ChangeNotifier {
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
   //navigation
   NavigationService service = NavigationService();
+  LoginRepository loginRepo = LoginRepository();
 
   //login function to login
   void requestLogin() async {
     //TextEditingController
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
+    loginRepo.loginAuth(email, password);
     //
     //passing email and password to repo function
-    LoginRepository loginRepo = LoginRepository();
-    loginRepo.loginAuth(email, password);
+
 //
 //Token Storage
     TokenStorage tokenStorage = TokenStorage();
@@ -35,14 +36,14 @@ class LoginViewModel extends ChangeNotifier {
         debugPrint('Login successful, token: $token');
       }
       if (token == null) {
-        //
-        // Show an error message
-        debugPrint('Login failed: $token');
-      } else {
+        passwordController.clear();
         SnackBarService.showSnackBar(
             content: 'Invalid Email or Password',
             duration: const Duration(milliseconds: 800));
-      }
+        //
+        // Show an error message
+        debugPrint('Login failed: $token');
+      } else {}
     }
     return null;
   }
