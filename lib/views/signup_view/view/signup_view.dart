@@ -34,11 +34,7 @@ class SignupView extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            SignupForm(
-                signUpKey: signupViewmodel.signUpKey,
-                nameController: signupViewmodel.nameController,
-                emailComtroller: signupViewmodel.emailComtroller,
-                passwordController: signupViewmodel.passwordController),
+            const SignupForm(),
             //
             //Signup button
             CustButton(
