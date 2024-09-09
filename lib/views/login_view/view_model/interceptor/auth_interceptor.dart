@@ -35,6 +35,15 @@ class AuthInterceptor extends InterceptorsWrapper {
       if (err.response!.statusCode == 400) {
         debugPrint('Unauthorized access - maybe need to re-authenticate');
       }
+      if (err.response!.statusCode == 204) {
+        debugPrint('There is no information to show');
+      }
+      if (err.response!.statusCode == 408) {
+        debugPrint('Request Time out');
+      }
+      if (err.response!.statusCode == 503) {
+        debugPrint('Service Unavailable');
+      }
       return super.onError(err, handler);
     }
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/navigation/route_generator.dart';
+import 'package:whats_app_ui/base/navigation/routes.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
 
 import 'package:whats_app_ui/views/detailed_chat/detailed_chat_viewmodel/detail_chat_view_model.dart';
@@ -70,7 +71,7 @@ class MyAppState extends State<MyApp> {
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: true,
       onGenerateRoute: RouteGenerator.generateRoutes,
-      initialRoute: isLogedin ? '/homeView' : '/loginView',
+      initialRoute: isLogedin ? Routes.homeView : Routes.loginView,
       navigatorKey: navigatorKey,
     );
   }
