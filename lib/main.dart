@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_ui/base/components/base_view_model/base_view.dart';
+import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
 
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/navigation/route_generator.dart';
 import 'package:whats_app_ui/base/navigation/routes.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
+
 import 'package:whats_app_ui/views/detailed_chat/detailed_chat_viewmodel/detail_chat_view_model.dart';
+import 'package:whats_app_ui/views/home_view/home_view_model/user_data_viewmodel.dart';
 
 import 'package:whats_app_ui/utils/theme/t_app_theme.dart';
 import 'package:provider/provider.dart';
+import 'package:whats_app_ui/views/login_view/view_model/login_viewmodel.dart';
+import 'package:whats_app_ui/views/signup_view/signup_view_model/signup_viewmodel.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,6 +22,9 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => DetailChatViewModel()),
+        ChangeNotifierProvider(create: (context) => UserDataViewModel()),
+        ChangeNotifierProvider(create: (context) => LoginViewModel()),
+        ChangeNotifierProvider(create: (context) => SignupViewmodel()),
         ChangeNotifierProvider(create: (context) => BaseViewModel()),
       ],
       child: const MyApp(),
@@ -59,7 +67,7 @@ class MyAppState extends State<MyApp> {
       );
     }
     return MaterialApp(
-      scaffoldMessengerKey: BaseViewModel.scaffoldKey,
+      scaffoldMessengerKey: SnackBarService.scaffoldKey,
       title: 'Flutter Demo',
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,

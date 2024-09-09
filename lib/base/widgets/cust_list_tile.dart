@@ -1,25 +1,33 @@
 import 'package:flutter/material.dart';
 
-///Creates a list tile.
+  /// Creates a list tile.
+  
+class CustListTile extends StatelessWidget {
+  ///Creates a list tile.
 ///
 ///Returns Containers of shape circle for Image and a Text widget for the [title] and subtitle.
 ///The title and subtitle are wrapped in a Row widget.
 ///[leading] is a bool set false to hide by default
 ///[title] is the title of the list tile.
-///[leadingIcon] to set the leading icon
-///
-class CustListTile extends StatelessWidget {
+///[tralingIcon] to set the leading icon
   const CustListTile(
       {super.key,
       required this.title,
       this.leading = false,
-      this.leadingIcon,
+      this.tralingIcon,
       required this.iconData});
 
+  /// Set Icon for Leading circular Container.
   final IconData iconData;
+
+  /// Set Title of the tile
   final String title;
+
+  /// Wether to set Leading or not
   final bool leading;
-  final IconData? leadingIcon;
+
+  /// Set Traling Icon
+  final IconData? tralingIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +43,7 @@ class CustListTile extends StatelessWidget {
             ),
           )),
       title: Text(title),
-      trailing: leading ? Icon(leadingIcon) : null,
+      trailing: leading ? Icon(tralingIcon) : null,
     );
   }
 }

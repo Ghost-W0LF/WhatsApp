@@ -46,7 +46,6 @@ class LoginViewModel extends BaseViewModel {
       }
       if (token == null) {
         passwordController.clear();
-        showSnackBar('Invalid Email or Password');
 
         //
         // Show an error message

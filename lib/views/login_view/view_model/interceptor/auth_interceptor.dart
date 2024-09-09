@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+
+import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
 import 'package:whats_app_ui/utils/constants/t_url.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
 
-class AuthInterceptor extends InterceptorsWrapper {
+class AuthInterceptor extends InterceptorsWrapper with SnackBarService {
   final TokenStorage tokenStorage = TokenStorage();
 
   @override
@@ -26,6 +28,7 @@ class AuthInterceptor extends InterceptorsWrapper {
   @override
   Future onResponse(
       Response response, ResponseInterceptorHandler handler) async {
+
     return super.onResponse(response, handler);
   }
 
@@ -33,7 +36,8 @@ class AuthInterceptor extends InterceptorsWrapper {
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (err.response != null) {
       if (err.response!.statusCode == 400) {
-        debugPrint('Unauthorized access - maybe need to re-authenticate');
+        SnackBarService.showSnackBar("Invalid Email or Password");
+        debugPrint('Unauthorized access ');
       }
       if (err.response!.statusCode == 204) {
         debugPrint('There is no information to show');

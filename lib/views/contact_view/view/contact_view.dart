@@ -53,7 +53,7 @@ class ContactView extends StatelessWidget {
                 iconData: Icons.person_add,
                 title: "New Contact",
                 leading: true,
-                leadingIcon: Icons.qr_code,
+                tralingIcon: Icons.qr_code,
               ),
               const CustListTile(
                 iconData: Icons.groups,
