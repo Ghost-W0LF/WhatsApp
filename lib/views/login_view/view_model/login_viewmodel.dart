@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
+import 'package:whats_app_ui/views/login_view/model/login_request_model.dart';
 import 'package:whats_app_ui/views/login_view/repository/login_repository_implement.dart';
 
 class LoginViewModel extends ChangeNotifier {
@@ -17,7 +18,10 @@ class LoginViewModel extends ChangeNotifier {
     //TextEditingController
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
-    loginRepo.loginAuth(email, password);
+    //passing TextEditingController to the model
+    loginRepo.loginAuth(LoginRequestModel(
+        email: email, password: password));
+
     //
     //Disposing the Controllers
     @override
