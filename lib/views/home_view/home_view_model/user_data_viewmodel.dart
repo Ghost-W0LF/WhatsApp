@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:whats_app_ui/base/components/base_view_model/base_view.dart';
 import 'package:whats_app_ui/views/home_view/model/user_data_model.dart';
 import 'package:whats_app_ui/views/home_view/repositort/user_repository_implements.dart';
 
-class UserDataViewModel extends ChangeNotifier {
+class UserDataViewModel extends BaseViewModel {
   UserData uData = UserData(data: []);
 
   final userRepository = UserRepositoryImplements();

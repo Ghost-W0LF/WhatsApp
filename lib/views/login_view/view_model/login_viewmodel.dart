@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
+import 'package:whats_app_ui/base/components/base_view_model/base_view.dart';
+
 import 'package:whats_app_ui/base/navigation/navigation_service.dart';
 import 'package:whats_app_ui/base/tokenstorage/toeken_storage.dart';
 import 'package:whats_app_ui/views/login_view/model/login_request_model.dart';
 import 'package:whats_app_ui/views/login_view/repository/login_repository_implement.dart';
 
-class LoginViewModel extends ChangeNotifier {
+class LoginViewModel extends BaseViewModel {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
@@ -18,9 +19,8 @@ class LoginViewModel extends ChangeNotifier {
     //TextEditingController
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
-    //passing TextEditingController to the model
-    loginRepo.loginAuth(LoginRequestModel(
-        email: email, password: password));
+    //passing TextEditingController to
+    loginRepo.loginAuth(LoginRequestModel(email: email, password: password));
 
     //
     //Disposing the Controllers
@@ -37,9 +37,7 @@ class LoginViewModel extends ChangeNotifier {
     String? token = await tokenStorage.readToken();
 
     if (loginFormKey.currentState!.validate()) {
-      SnackBarService.showSnackBar(
-          content: 'Processing Data',
-          duration: const Duration(milliseconds: 400));
+      const Duration(milliseconds: 800);
       if (token != null) {
         passwordController.clear();
 
@@ -48,9 +46,8 @@ class LoginViewModel extends ChangeNotifier {
       }
       if (token == null) {
         passwordController.clear();
-        SnackBarService.showSnackBar(
-            content: 'Invalid Email or Password',
-            duration: const Duration(milliseconds: 800));
+        showSnackBar('Invalid Email or Password');
+
         //
         // Show an error message
         debugPrint('Login failed: $token');

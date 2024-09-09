@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:whats_app_ui/base/components/snack_bar/snackbar_service.dart';
+import 'package:whats_app_ui/base/components/base_view_model/base_view.dart';
+
 import 'package:whats_app_ui/views/login_view/model/signup_request_model.dart';
 import 'package:whats_app_ui/views/signup_view/signup_repository/signup_repository_implements.dart';
 
-class SignupViewmodel extends ChangeNotifier {
+class SignupViewmodel extends BaseViewModel {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailComtroller = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -26,9 +27,9 @@ class SignupViewmodel extends ChangeNotifier {
             email: emailComtroller.toString(),
             password: passwordController.toString(),
             userName: nameController.toString()));
-        SnackBarService.showSnackBar(
-            content: "Processing Data",
-            duration: const Duration(milliseconds: 400));
+        showSnackBar(
+          "Processing Data",
+         );
       }
     } catch (e) {
       debugPrint("The error is:- $e");
